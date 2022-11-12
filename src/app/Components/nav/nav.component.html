@@ -1,0 +1,40 @@
+<nav class="navbar navbar-expand-lg  navbar-dark bg-primary  ">
+
+    <div class="container-fluid">
+        <!-- <img src="assets/logo.svg" alt=""> -->
+
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
+            aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation"
+            style="border:0 ;">
+            <span> <img src="assets/icon-hamburger.svg" alt=""></span>
+        </button>
+        <div class="collapse navbar-collapse row  " id="navbarNavAltMarkup">
+            <span class="col-lg-1"></span>
+            <div class="navbar-nav col-lg-4 text-light">
+                <a class="nav-link text-light" aria-current="page" [routerLink]="['']">Home</a>
+                <a class="nav-link text-light" [routerLink]="['formulario']">Formulario</a>
+                <a class="nav-link text-light" href="#">Contact</a>
+                <a class="nav-link text-light" href="#">Blog</a>
+                <a class="nav-link text-light" href="#" >Careers</a>
+            </div>
+            <span class="col-lg-4"></span>
+            <div class="col" style="display: flex;">
+                <div *ngIf="true" style="margin-left: auto;">
+                    <button class=" btn btn-outline-light collapse navbar-collapse " type="submit" [routerLink]="['login']" (click)="login()">Login</button>
+                </div>
+               <div style="margin-left: auto;">
+                <button class=" btn btn-outline-light collapse navbar-collapse " type="submit" [routerLink]="['']" (click)="logout()">Logout</button>
+
+               </div>
+                
+            </div>
+
+
+        </div>
+
+
+    </div>
+
+</nav>
+
+
