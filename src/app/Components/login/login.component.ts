@@ -15,11 +15,10 @@ export class LoginComponent implements OnInit {
   sesion_fail = false;
   constructor(private http: HttpServiceService, private fb: FormBuilder, private cookie: CookieService, private router: Router) {
     this.formPass = this.fb.group({
-      email: [''],
-      password: ['']
+     cpf: [''],
+     senha: ['']
     });
    
-    //cookie.delete('token');
   }
 
 
@@ -28,19 +27,20 @@ export class LoginComponent implements OnInit {
   }
   login() {
     const Body = this.formPass.value;
-    const Url = environment.UrlBase + "login";
+    const Url = environment.UrlBase + "auth/login";
     this.http.post(Url, Body).subscribe({
       next:
         res => {
-         // console.log(res);
-         // this.cookie.set('token', res.toString(), 0.005, '/');
-          localStorage.setItem('access-token',res.toString()); 
+          var x:any = res;
+          console.log(x);
+          localStorage.setItem('access-token',x.token.toString()); 
+          localStorage.setItem('id-token',x.id_usuario.toString());
           this.router.navigate(['formulario']);
-        //  console.log('saliendo del login');
+        
         },
         error:()=>{
           this.sesion_fail = true;
-         // console.error('tenemos un problmas usuario o contraseña mal',err.error);
+         
         }
 
     }
@@ -48,9 +48,8 @@ export class LoginComponent implements OnInit {
     );
   }
   newLogin(){
-   var Body:mi_user = {cpf:"06335968762",senha:"moreno123"};
-   this.http.post("http://localhost/api_livre_20/public/auth/login",Body).subscribe(res=>{console.log(res)});
-
+ 
+this.http.gett().subscribe(res => console.log(res));
   }
   
 }

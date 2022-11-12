@@ -33,7 +33,9 @@ const maskConfigFunction: () => Partial<IConfig> = () => {
     HttpClientModule,
     AppRoutingModule
   ],
-  providers: [CookieService,{provide: HTTP_INTERCEPTORS,useClass:AuthInterceptorService,multi:true}, { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor , multi: true }],
+ // providers: [CookieService,{provide: HTTP_INTERCEPTORS,useClass:AuthInterceptorService,multi:true}, { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor , multi: true }],
+  providers: [CookieService],
+ 
   bootstrap: [AppComponent]
 })
 export class AppModule { }

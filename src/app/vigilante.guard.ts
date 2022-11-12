@@ -13,10 +13,15 @@ export class VigilanteGuard implements CanActivate {
 
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
-    return this.http.Validdar_token();
+   // return this.http.Validdar_token();
+   return this.validar_temp();
   }
 
-  
+  validar_temp(){
+    var token = localStorage.getItem('access-token');
+    if(token)return true;
+    return false;
+  }
 
 }
 

@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  UrlBase: "http://localhost:5000/"
+  UrlBase: "http://localhost/api_livre_20/public/"
 
 };
 
