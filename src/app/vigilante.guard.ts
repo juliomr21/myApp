@@ -20,6 +20,7 @@ export class VigilanteGuard implements CanActivate {
   validar_temp(){
     var token = localStorage.getItem('access-token');
     if(token)return true;
+    this.router.navigate(['login']);
     return false;
   }
 

@@ -9,6 +9,7 @@ import { HttpServiceService } from '../../Services/http-service.service';
 })
 export class FormularioComponent implements OnInit {
 
+  userLog=''
   form: FormGroup;
   constructor(private fb: FormBuilder,private Http:HttpServiceService) { 
    this.form = fb.group({
@@ -19,9 +20,8 @@ export class FormularioComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    // const s = localStorage.getItem('rr');
-    // let kk = 5 + s!;
-    // console.log(kk);
+    this.userLog = this.Http.getUser();
+   
   }
   f(){
 

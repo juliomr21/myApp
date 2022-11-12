@@ -4,6 +4,7 @@ import { LoginComponent } from './Components/login/login.component';
 import { FormularioComponent } from './Components/formulario/formulario.component';
 import { VigilanteGuard } from './vigilante.guard';
 import { HomeComponent } from './home/home.component';
+import { RegisterComponent } from './Components/register/register.component';
 
 const routes: Routes = [
   {path:'',
@@ -16,6 +17,10 @@ const routes: Routes = [
     path:'formulario',
     component:FormularioComponent,
     canActivate: [VigilanteGuard]
+  },
+  {
+    path:'register',
+    component:RegisterComponent
   }
 ];
 

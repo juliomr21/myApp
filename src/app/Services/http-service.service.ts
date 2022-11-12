@@ -2,7 +2,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { CookieService } from 'ngx-cookie-service';
 import { Router } from '@angular/router';
-import { firstValueFrom, Subject } from 'rxjs';
+import { firstValueFrom, Observable, Subject } from 'rxjs';
 import { environment } from 'src/environments/environment';
 @Injectable({
   providedIn: 'root'
@@ -15,16 +15,32 @@ export class HttpServiceService {
     this.user = '';
     this.user$ = new Subject<string>();
   }
+  setUser(usuario:string){
+    this.user = usuario;
+    //this.personas.push(pPersona);
+   this.user$.next(this.user);
+    // this.personas$.next(this.personas);
+   }
+   getUser$():Observable<string>{
+    return this.user$.asObservable();
+   }
+   getUser(){
+    return this.user;
+   }
 
+  // criarUser(Url:string,data:any){
+    
+  // }
   post(Url: string, data: any) {
     return this.http.post(Url, data);
   }
 
   gett() {
-    let token = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2NjgyMjAwODIsImV4cCI6MTY2ODI0ODg4MiwiZGF0YSI6eyJ1c2VyIjoiMTA2IiwiZXN0YWRvIjoiMSIsImFjY2VzcyI6IlVTRVIifX0.m5CO9yCjxROGI8d0vk-IpWDyJ5Mt7WiP9WPM_4rzdTg";
-    let headers = new HttpHeaders({
+     let token = localStorage.getItem('access-token');
+     let headers = new HttpHeaders({
       "Content-Type": "application/json",
-      "Authorization": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2NjgyMjAwODIsImV4cCI6MTY2ODI0ODg4MiwiZGF0YSI6eyJ1c2VyIjoiMTA2IiwiZXN0YWRvIjoiMSIsImFjY2VzcyI6IlVTRVIifX0.m5CO9yCjxROGI8d0vk-IpWDyJ5Mt7WiP9WPM_4rzdTg",
+      "Authorization": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2NjgyNjQzNDMsImV4cCI6MTY2ODI5MzE0MywiZGF0YSI6eyJ1c2VyIjoiMTA2IiwiZXN0YWRvIjoiMSIsImFjY2VzcyI6IlVTRVIifX0.B5WCAlhkdBmYJ7AeJK1oB3cZKiul6iSrcvwruhSI6IQ"
+    
     });
     return this.http.get("http://localhost/api_livre_20/public/user/usuarios/106", { headers });
 

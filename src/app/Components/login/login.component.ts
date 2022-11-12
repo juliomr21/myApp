@@ -36,6 +36,7 @@ export class LoginComponent implements OnInit {
           localStorage.setItem('access-token',x.token.toString()); 
           localStorage.setItem('id-token',x.id_usuario.toString());
           this.router.navigate(['formulario']);
+          this.http.setUser(this.formPass.value.cpf);
         
         },
         error:()=>{
@@ -49,7 +50,7 @@ export class LoginComponent implements OnInit {
   }
   newLogin(){
  
-this.http.gett().subscribe(res => console.log(res));
+   this.http.gett().subscribe(res => console.log(res));
   }
   
 }
