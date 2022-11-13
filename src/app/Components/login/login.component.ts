@@ -4,6 +4,7 @@ import { HttpServiceService } from '../../Services/http-service.service';
 import { environment } from 'src/environments/environment';
 import { CookieService } from 'ngx-cookie-service';
 import { Router } from '@angular/router';
+import { DataStoreService } from '../../data-store.service';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -13,17 +14,21 @@ export class LoginComponent implements OnInit {
 
   formPass: FormGroup;
   sesion_fail = false;
-  constructor(private http: HttpServiceService, private fb: FormBuilder, private cookie: CookieService, private router: Router) {
+  constructor(
+    private http: HttpServiceService,
+    private fb: FormBuilder,
+    private dataS: DataStoreService,
+    private router: Router) {
     this.formPass = this.fb.group({
-     cpf: [''],
-     senha: ['']
+      cpf: [''],
+      senha: ['']
     });
-   
+
   }
 
 
   ngOnInit(): void {
-   localStorage.setItem('access-token','');
+    localStorage.setItem('access-token', '');
   }
   login() {
     const Body = this.formPass.value;
@@ -31,35 +36,26 @@ export class LoginComponent implements OnInit {
     this.http.post(Url, Body).subscribe({
       next:
         res => {
-          var x:any = res;
-          console.log(x);
-          localStorage.setItem('access-token',x.token.toString()); 
-          localStorage.setItem('id-token',x.id_usuario.toString());
-          this.router.navigate(['formulario']);
-          this.http.setUser(this.formPass.value.cpf);
-        
+          let resLog: any = res;
+          let temp:any;
+          localStorage.setItem('access-token', resLog.token.toString());
+          localStorage.setItem('id-token', resLog.id_usuario.toString());
+          this.http.userInfo().subscribe(res => {temp = res; this.dataS.setUser(temp.data.nome);});
+          this.router.navigate(['']);
+
         },
-        error:()=>{
-          this.sesion_fail = true;
-         
-        }
+      error: () => {
+        this.sesion_fail = true;
 
-    }
+      }
 
-    );
+    });
   }
-  newLogin(){
- 
-   this.http.gett().subscribe(res => console.log(res));
+  newLogin() {
+    this.router.navigate(['register']);
+   // this.http.userInfo().subscribe(res => console.log(res));
   }
-  
+
 }
-interface user_log {
-  email: string,
-  password: string
-}
-interface mi_user {
-  cpf: string,
-  senha: string
-}
+
 

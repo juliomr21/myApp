@@ -11,38 +11,52 @@ export class HttpServiceService {
 
   private user: string;
   private user$: Subject<string>;
+  private userData: any;
+  private userData$: Subject<any>;
   constructor(private http: HttpClient, private cookie: CookieService, private router: Router) {
     this.user = '';
     this.user$ = new Subject<string>();
+    this.userData = {};
+    this.userData$ = new Subject<any>();
   }
-  setUser(usuario:string){
+  setUserData(userTemp: any) {
+    console.log(userTemp)
+    this.userData = userTemp;
+    this.userData$.next(this.userData);
+  }
+  setUser(usuario: string) {
     this.user = usuario;
     //this.personas.push(pPersona);
-   this.user$.next(this.user);
+    this.user$.next(this.user);
     // this.personas$.next(this.personas);
-   }
-   getUser$():Observable<string>{
+  }
+  getUserData$(): Observable<any> {
+    return this.userData$.asObservable();
+  }
+  getUserData() {
+    return this.userData;
+  }
+  getUser$(): Observable<string> {
     return this.user$.asObservable();
-   }
-   getUser(){
+  }
+  getUser() {
     return this.user;
-   }
+  }
 
-  // criarUser(Url:string,data:any){
-    
-  // }
+
   post(Url: string, data: any) {
     return this.http.post(Url, data);
   }
 
-  gett() {
-     let token = localStorage.getItem('access-token');
-     let headers = new HttpHeaders({
+  userInfo() {
+    let token = localStorage.getItem('access-token')!;
+    let id = localStorage.getItem('id-token')!
+    let Url = environment.UrlBase + `user/usuarios/${id}`;
+    let headers = new HttpHeaders({
       "Content-Type": "application/json",
-      "Authorization": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2NjgyNjQzNDMsImV4cCI6MTY2ODI5MzE0MywiZGF0YSI6eyJ1c2VyIjoiMTA2IiwiZXN0YWRvIjoiMSIsImFjY2VzcyI6IlVTRVIifX0.B5WCAlhkdBmYJ7AeJK1oB3cZKiul6iSrcvwruhSI6IQ"
-    
+      "Authorization": token
     });
-    return this.http.get("http://localhost/api_livre_20/public/user/usuarios/106", { headers });
+    return this.http.get(Url, { headers });
 
   }
   get(Url: string) {
@@ -68,4 +82,5 @@ export class HttpServiceService {
   }
 
 }
+
 

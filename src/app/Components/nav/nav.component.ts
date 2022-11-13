@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { HttpServiceService } from '../../Services/http-service.service';
+import { DataStoreService } from '../../data-store.service';
 
 @Component({
   selector: 'app-nav',
@@ -10,17 +11,17 @@ import { HttpServiceService } from '../../Services/http-service.service';
 export class NavComponent implements OnInit {
 
   userLog = '';
-  constructor(private http:HttpServiceService) {
+  constructor( private dataS:DataStoreService) {
 
    }
 
   ngOnInit(): void {
-   this.http.getUser$().subscribe(res => this.userLog =  res);
+   this.dataS.getUser$().subscribe(res => this.userLog =  res);
   }
  
    logout(){
    localStorage.setItem('access-token','');
-   this.http.setUser('');
+   this.dataS.setUser('');
    }
    login(){
     localStorage.setItem('access-token','');
