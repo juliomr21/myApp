@@ -13,6 +13,7 @@ import { NavComponent } from './Components/nav/nav.component';
 import { AuthInterceptorService } from './auth-interceptor.service';
 import { ErrorInterceptor } from './error-interceptor.service';
 import { RegisterComponent } from './Components/register/register.component';
+import { CpfPipePipe } from './Pipe/cpf-pipe.pipe';
 const maskConfigFunction: () => Partial<IConfig> = () => {
   return {
     validation: false,
@@ -25,7 +26,8 @@ const maskConfigFunction: () => Partial<IConfig> = () => {
     FormularioComponent,
     HomeComponent,
     NavComponent,
-    RegisterComponent
+    RegisterComponent,
+    CpfPipePipe
   ],
   imports: [
     BrowserModule,

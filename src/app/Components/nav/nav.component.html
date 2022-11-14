@@ -12,31 +12,41 @@
             <span class="col-lg-1"></span>
             <div class="navbar-nav col-lg-4 text-light">
                 <a class="nav-link text-light" aria-current="page" [routerLink]="['']">Home</a>
-                <a class="nav-link text-light" [routerLink]="['formulario']">Mis datos</a>
+                <a class="nav-link text-light" [routerLink]="['formulario']">Perfil</a>
                 <a class="nav-link text-light" href="#">Contact</a>
                 <a class="nav-link text-light" href="#">Blog</a>
                 <a class="nav-link text-light" href="#" >Careers</a>
             </div>
-            <span class="col-lg-4"></span>
-            <div class="col" style="display: flex;">
-                <!-- <div >
-                    <p class="text-white">{{userLog}}</p>
-                </div> -->
-                <div *ngIf="!userLog" style="margin-left: auto;display: flex;">
-                    <button style="margin-right: 10px;" class=" btn btn-outline-light collapse navbar-collapse " type="submit" [routerLink]="['login']" (click)="login()">Login</button>
-                    <button class=" btn btn-warning collapse navbar-collapse " type="submit" [routerLink]="['register']" >Register</button>
-                </div>
-               <div *ngIf="userLog" style="margin-left: auto; display: flex;">
-                <p class="text-white" style="margin-bottom: auto;margin-right:10px; margin-top: auto;">Bienvenido {{userLog}}</p>
-                <button class=" btn btn-outline-light collapse navbar-collapse " type="submit" [routerLink]="['']" (click)="logout()">Logout</button>
-
-               </div>
-                
+           <!--********  -->
+           <!-- <div class="col" style="display: flex;">
+               
+            <div *ngIf="!userLog" style="margin-left: auto;display: flex;">
+                <button style="margin-right: 10px;" class=" btn btn-outline-light collapse navbar-collapse " type="submit" [routerLink]="['login']" (click)="login()">Login</button>
+                <button class=" btn btn-warning collapse navbar-collapse " type="submit" [routerLink]="['register']" >Register</button>
             </div>
+           <div *ngIf="userLog" style="margin-left: auto; display: flex;">
+            <p class="text-white" style="margin-bottom: auto;margin-right:10px; margin-top: auto;">Bienvenido {{userLog}}</p>
+            <button class=" btn btn-outline-light collapse navbar-collapse " type="submit" [routerLink]="['']" (click)="logout()">Logout</button>
 
+           </div>
+            
+        </div> -->
 
+            <!-- ********** -->
         </div>
+        <div class="col" style="display: flex;">
+               
+            <div *ngIf="!userLog" style="margin-left: auto;display: flex;">
+                <button style="margin-right: 10px;" class=" btn btn-outline-light  " type="submit" [routerLink]="['login']" (click)="login()">Login</button>
+                <button class=" btn btn-warning  " type="submit" [routerLink]="['register']" >Register</button>
+            </div>
+           <div *ngIf="userLog" style="margin-left: auto; display: flex;">
+            <p class="text-white" style="margin-bottom: auto;margin-right:10px; margin-top: auto;">Bienvenido {{userLog}}</p>
+            <button class=" btn btn-outline-light  " type="submit" [routerLink]="['']" (click)="logout()">Logout</button>
 
+           </div>
+            
+        </div>
 
     </div>
 

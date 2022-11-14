@@ -2,24 +2,30 @@
     <h3 style="margin-top: 10%;" class="text-center">Login</h3>
     
     <div class="form-group" style="margin-top: 5%;">
-        <label class="form-label " for="user-fild">Username</label>
+        <label class="form-label " for="user-fild">CPF*</label>
         <div>
-            <input class="form-control " type="text"  name="user-fild" formControlName="cpf">
+            <input [ngClass]="cpf_fail" class="form-control " type="text"  name="user-fild" formControlName="cpf" mask="000.000.000-00" placeholder="123.456.789-01">
+            <div *ngIf="cpf_fail === 'is-invalid'" class="invalid-feedback" style="margin-left:10%; font-size: small;" >
+                O campo CPF deve conter 11 números.
+              </div>
         </div>
         
    
     </div>
     <div class="form-group" style="margin-top: 2%;">
-        <label class="form-label " for="pass-fild">Password</label>
+        <label class="form-label " for="pass-fild">Senha*</label>
         <div>
-            <input class="form-control " type="password" name="pass-fild" formControlName="senha">
+            <input [ngClass]="senha_fail" class="form-control " type="password" name="pass-fild" formControlName="senha">
+            <div *ngIf="senha_fail === 'is-invalid'" class="invalid-feedback" style="margin-left:10%; font-size: small;" >
+                O campo Senha é obrigatório.
+              </div>
         </div>
      
        
     </div>
     <div *ngIf="sesion_fail" class="wrong-login "  role="">
   
-       <p class="text-center">Login failed</p> 
+       <p class="text-center">{{erro_message}}</p> 
     </div>
     
    

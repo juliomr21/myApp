@@ -21,6 +21,8 @@ export class NavComponent implements OnInit {
  
    logout(){
    localStorage.setItem('access-token','');
+   localStorage.setItem('id-token','');
+   localStorage.setItem('nome','')
    this.dataS.setUser('');
    }
    login(){

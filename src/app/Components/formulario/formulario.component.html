@@ -1,4 +1,13 @@
-<h1>Página para login válido de {{userLog}}!</h1>
+
+<div class="container">
+    <h2 style="margin-top: 5%;margin-bottom: 5%">MI PERFIL</h2>
+    <h5>Nome: {{userData.data.nome}}</h5>
+    <h5>CPF: {{userData.data.cpf| mask: '000.000.000-00'}}</h5>
+    <h5>Email: {{userData.data.email}}</h5>
+    <h5>Telefone: {{userData.data.telefone| mask:'(00)000000000'}}</h5>
+    <h5>Cuenta creada: {{userData.data.created_at|date}}</h5>
+
+</div>
 <!-- <form [formGroup]="form" class="row" >
     <div class="form-group col-lg-4" style="margin-left: auto; margin-right:auto">
         <label for="nick">Nick</label>

@@ -1,31 +1,35 @@
 <p>register works!</p>
-<form [formGroup]="form" class="row" >
-    <div class="form-group col-lg-4" style="margin-left: auto; margin-right:auto">
-        <label for="cpf">cpf</label>
-        <div>
-            <input type="text" name="cpf" class="form-control"  formControlName="cpf" mask="00000000000">
-        </div>
-        <label for="senha">senha</label>
-        <div>
-            <input type="password" name="senha" class="form-control" formControlName="senha">
-        </div>
-        <label for="email">email</label>
-        <div>
-            <input type="email" name="email" class="form-control" formControlName="email">
-        </div>
-        <label for="telefone">telefone</label>
-        <div>
-            <input type="number" name="telefone" class="form-control" formControlName="telefone">
-        </div>
-        <label for="nome">nome</label>
-        <div>
-            <input type="text" name="nome" class="form-control" formControlName="nome">
-        </div>
-        <!-- <label for="foto">Foto</label>
-        <div>
-            <input type="file" name="foto" class="form-control" (change)="catch_image($event)">
-        </div> -->
-        <button class="btn btn-success" (click)="criar()">Enviar</button>
-    </div>
+<div class="container">
 
-</form>
+    <form [formGroup]="form" class="row" >
+        <div class="form-group col-lg-4" style="margin-left: auto; margin-right:auto">
+            <label for="cpf">CPF</label>
+            <div>
+                <input type="text" name="cpf" class="form-control" placeholder="000.000.000-00" formControlName="cpf" mask="000.000.000-00">
+            </div>
+            <label for="senha">Senha</label>
+            <div>
+                <input type="password" name="senha" class="form-control"  formControlName="senha">
+            </div>
+            <label for="email">Email</label>
+            <div>
+                <input type="email" name="email" class="form-control" placeholder="user@example.com" formControlName="email">
+            </div>
+            <label for="telefone">Telefone</label>
+            <div>
+                <input type="text" name="telefone" class="form-control" placeholder="(00)000000000" formControlName="telefone" mask="(00)000000000">
+            </div>
+            <label for="nome">Nome</label>
+            <div>
+                <input type="text" name="nome" class="form-control" placeholder="Julinho Nascimento" formControlName="nome">
+            </div>
+            <!-- <label for="foto">Foto</label>
+            <div>
+                <input type="file" name="foto" class="form-control" (change)="catch_image($event)">
+            </div> -->
+            <button class="btn btn-warning" style="margin-top:5%;" (click)="criar()">Mandar</button>
+        </div>
+    
+    </form>
+
+</div>

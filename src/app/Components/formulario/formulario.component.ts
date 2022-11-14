@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder } from '@angular/forms';
 import { HttpServiceService } from '../../Services/http-service.service';
+import { DataStoreService } from '../../data-store.service';
 
 @Component({
   selector: 'app-formulario',
@@ -11,8 +12,12 @@ export class FormularioComponent implements OnInit {
 
   userLog = ''
   userData: any
+  tempData: any
   form: FormGroup;
-  constructor(private fb: FormBuilder, private Http: HttpServiceService) {
+  constructor(
+    private fb: FormBuilder, 
+    private Http: HttpServiceService,
+    private dataS:DataStoreService) {
     this.form = fb.group({
       nombre: [''],
       nick: [''],
@@ -23,9 +28,11 @@ export class FormularioComponent implements OnInit {
   ngOnInit(): void {
     this.Http.userInfo().subscribe(res => {
       this.userData = res;
-      this.userLog = this.userData.data.nome;
-      localStorage.setItem('nome', this.userData.data.nome.toString());
-      this.Http.setUser(this.userData.data.nome.toString());
+     
+      //console.log(res);
+      // this.userLog = this.userData.data.nome;
+      // localStorage.setItem('nome', this.userData.data.nome.toString());
+      // this.Http.setUser(this.userData.data.nome.toString());
     //   this.userLog = this.userData.data.nome.toString();
       
     });

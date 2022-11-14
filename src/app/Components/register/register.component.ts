@@ -12,10 +12,10 @@ export class RegisterComponent implements OnInit {
   form: FormGroup;
   constructor(private fb: FormBuilder,private Http:HttpServiceService) { 
    this.form = fb.group({
-      cpf:[0],
+      cpf:[],
       senha: [''],
       email: [''],
-      telefone:[0],
+      telefone:[],
       nome: ['']
 
     })
