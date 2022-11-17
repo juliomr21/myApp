@@ -1,4 +1,4 @@
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { CookieService } from 'ngx-cookie-service';
 import { Router } from '@angular/router';
@@ -46,6 +46,60 @@ export class HttpServiceService {
 
   post(Url: string, data: any) {
     return this.http.post(Url, data);
+  }
+  uploadImage(data:any):Observable<any>{
+    const Url = environment.UrlBase+"user/upload-image/0";
+    let token = localStorage.getItem('access-token')!;
+   // let id = localStorage.getItem('id-token')!
+   // let Url = environment.UrlBase + `user/usuarios/${id}`;
+    let headers = new HttpHeaders({
+      "Content-Type": "application/json",
+      "Authorization": token
+    });
+    // var MiFormData = new FormData();
+    // MiFormData.append('image', data);
+    return this.http.post(Url,data,{headers});
+
+  }
+  subirImagen(arquivo:FormData):Observable<any>{
+    let token = localStorage.getItem('access-token')!;
+    
+     let headers = new HttpHeaders({
+     
+      "Content-Type": "application/x-www-form-urlencoded",
+       "Authorization": token
+     });
+    
+    let Url = environment.UrlBase + `user/upload-image/0`;
+    return this.http.post(Url,arquivo,{headers});
+  }
+  subirImagen1(arquivo:FormData):Observable<any>{
+    let token = localStorage.getItem('access-token')!;
+    
+     let headers = new HttpHeaders({
+     
+      "Content-Type": "application/json",
+       "Authorization": token
+     });
+    
+    let Url = environment.UrlBase + `user/upload-image/0`;
+    return this.http.post(Url,arquivo,{headers});
+  }
+
+  upload(arquivo:File){
+    var form = new FormData(); 
+    form.append('arquivo',arquivo);
+    console.log('archivo enviado al servidor con   "Content-Type": "application/x-www-form-urlencoded"',form);
+    let token = localStorage.getItem('access-token')!;
+    
+    let headers = new HttpHeaders({
+    
+     "Content-Type": "application/x-www-form-urlencoded",
+      "Authorization": token
+    });
+   
+   let Url = environment.UrlBase + `user/upload-image/0`;
+   return this.http.post(Url,arquivo,{headers});
   }
 
   userInfo() {

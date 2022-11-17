@@ -1,5 +1,5 @@
 
-<div class="container">
+<!-- <div class="container">
     <h2 style="margin-top: 5%;margin-bottom: 5%">MI PERFIL</h2>
     <h5>Nome: {{userData.data.nome}}</h5>
     <h5>CPF: {{userData.data.cpf| mask: '000.000.000-00'}}</h5>
@@ -7,7 +7,24 @@
     <h5>Telefone: {{userData.data.telefone| mask:'(00)000000000'}}</h5>
     <h5>Cuenta creada: {{userData.data.created_at|date}}</h5>
 
-</div>
+</div> -->
+
+<form [formGroup]="form1">
+    carga el archivo y luego upload
+    <input type="file" name="files" class="form-control" (change)="catch_image1($event)">
+    <button (click)="upload()">upload</button>
+</form>
+<h5 style="margin-top: 5%;">carga y enia el archivo</h5>
+<form enctype="multipart/form-data" >
+    <input type="file" name="file" (change)="subiendoando($event)" >
+</form>
+<form  style="margin-top: 5%;">
+    <input type="file"  (change)="subiendoando1($event)" >
+</form>
+<form style="margin-top: 5%;">
+    <input type="file"  (change)="catch_image($event)" >
+</form>
+
 <!-- <form [formGroup]="form" class="row" >
     <div class="form-group col-lg-4" style="margin-left: auto; margin-right:auto">
         <label for="nick">Nick</label>
