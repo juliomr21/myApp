@@ -66,7 +66,7 @@ export class HttpServiceService {
     
      let headers = new HttpHeaders({
      
-      "Content-Type": "application/x-www-form-urlencoded",
+     // "Content-Type": "application/x-www-form-urlencoded",
        "Authorization": token
      });
     
