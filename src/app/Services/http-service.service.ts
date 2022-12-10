@@ -94,12 +94,12 @@ export class HttpServiceService {
     
     let headers = new HttpHeaders({
     
-     "Content-Type": "application/x-www-form-urlencoded",
+    // "Content-Type": "application/x-www-form-urlencoded",
       "Authorization": token
     });
    
    let Url = environment.UrlBase + `user/upload-image/0`;
-   return this.http.post(Url,arquivo,{headers});
+   return this.http.post(Url,form,{headers});
   }
 
   userInfo() {

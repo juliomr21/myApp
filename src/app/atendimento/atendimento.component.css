@@ -1,0 +1,30 @@
+.info {
+    margin-top: 70px;
+    margin-left: 70px;
+    width: 320px;
+    height: 49px;  
+    font: normal normal bold 19px/20px Montserrat;
+}
+.info-opcion{
+    font: normal normal bold 15px/19px Montserrat;
+    width: 104px;
+   height: 38px;
+}
+.letra{
+    width: 320px;
+    height: 49px;
+    
+    letter-spacing: 0px;
+    color: #003940;
+    opacity: 1;
+}
+.opcion-atendimento{
+    width: 330px;
+    height: 219px;
+    margin-top: 50px;
+    margin-left: 14px;
+    margin-right: 14px;
+    background: #F3F7FA 0% 0% no-repeat padding-box;
+    border-radius: 14px;
+    opacity: 1;
+}

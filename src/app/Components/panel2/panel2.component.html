@@ -1,0 +1,59 @@
+<div class="container">
+    <div class="row" style="margin-top: 10px;" >
+        <div class="col-lg-3" style="margin-top: 30px;">
+            <!-- <div style="margin-left: 30px; display: flex;" >
+                <div>
+                    <img src="assets\Icon feather-menu.png" alt="" >
+                </div>
+
+                <p style="color:#798F92 ; margin-left: 5px;">MENU</p>
+            </div> -->
+            <div  class="icon-menu" (click)="funcion1(1)">
+                <img src="assets\transaccion.png" alt="" style="margin-left: 10px; margin-right: 20px;" class="icon-opcion">
+                <p [ngStyle]="transaccionStyle">Transações</p>
+               
+            </div>
+            <hr>
+            <div class="icon-menu" (click)="funcion1(2)">
+                <img src="assets\micuenta.png" alt="" style="margin-left: 10px; margin-right: 20px;" class="icon-opcion">
+                <p [ngStyle]="minhacontaStyle">Minha conta</p>
+            </div>
+            <hr>
+            <div class="icon-menu" (click)="funcion1(3)">
+                <img src="assets\atendimento.png" alt="" style="margin-left: 10px; margin-right: 20px;" class="icon-opcion">
+                <p [ngStyle]="atentendimentoStyle">Atendimento </p>
+            </div>
+            <hr>
+            <!-- <div style="margin-left: auto;margin-right: auto; " >
+                <img src="assets\emprestimo.png" alt="" style="margin-left: 15px">
+                <p style="color:#798F92 ;">Empréstimos</p>
+            </div> -->
+        </div>
+        
+        <div class="col-lg-8" >
+            <div class="v-line">
+           
+            </div>
+            <div style="display: flex;">
+                <button  class="boton-voltar"
+                style="margin-left: 12px; margin-right: 20px;margin-bottom: 20px;text-align: left;">
+                <img src="assets/voltar.png"> <strong style="margin-left: 20px;"> VOLTAR</strong> 
+            </button>
+            <div style="margin-left: auto;">
+                <img src={{logo_Operacion}}>
+                <label class="opcion" style="margin-left: 10px;">{{Operacion}}</label>
+            </div>
+            </div>
+            <hr>
+            <!-- vistas dinamicas -->
+            <app-transacciones *ngIf="bt == 1"></app-transacciones>
+            <app-mina-conta *ngIf="bt == 2"></app-mina-conta>
+            <app-atendimento *ngIf="bt == 3"></app-atendimento>
+           
+       
+        </div>
+
+       
+    </div>
+
+</div>
