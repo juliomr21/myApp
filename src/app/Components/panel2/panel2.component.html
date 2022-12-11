@@ -35,7 +35,7 @@
            
             </div>
             <div style="display: flex;">
-                <button  class="boton-voltar"
+                <button (click)="voltar()" class="boton-voltar"
                 style="margin-left: 12px; margin-right: 20px;margin-bottom: 20px;text-align: left;">
                 <img src="assets/voltar.png"> <strong style="margin-left: 20px;"> VOLTAR</strong> 
             </button>
@@ -49,6 +49,7 @@
             <app-transacciones *ngIf="bt == 1"></app-transacciones>
             <app-mina-conta *ngIf="bt == 2"></app-mina-conta>
             <app-atendimento *ngIf="bt == 3"></app-atendimento>
+            <app-beneficiarios *ngIf="bt == 4"></app-beneficiarios>
            
        
         </div>

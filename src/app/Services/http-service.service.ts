@@ -42,7 +42,17 @@ export class HttpServiceService {
   getUser() {
     return this.user;
   }
+ getBeneficiario(){
+  const token: string = localStorage.getItem('access-token')!;
+  
+  let headers = new HttpHeaders({
+    "Content-Type": "application/json",
+    "Authorization": token
+  });
 
+  
+  return this.http.get('http://localhost/api_livre_20/public/user/beneficiario',{headers});
+ }
 
   post(Url: string, data: any) {
     return this.http.post(Url, data);

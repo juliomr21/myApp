@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-panel2',
@@ -7,14 +8,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class Panel2Component implements OnInit {
 
-  bt = 1;
+  bt = 4;
   simpleStyle =  { 'color': '', 'font': 'normal normal  20px/14px Montserrat' }
   transaccionStyle ={ 'color': '', 'font': 'normal normal  20px/14px Montserrat' }
   minhacontaStyle = { 'color': '', 'font': 'normal normal  20px/14px Montserrat' }
   atentendimentoStyle ={ 'color': '', 'font': 'normal normal  20px/14px Montserrat' }
   Operacion = 'Transações'
   logo_Operacion = 'assets/icon-transaccion.png'
-  constructor() { }
+  constructor(private router:Router) { }
 
   ngOnInit(): void {
   }
@@ -47,5 +48,8 @@ export class Panel2Component implements OnInit {
         this.logo_Operacion = 'assets/icon-atendimento.png'
       }
     }
+  }
+  voltar() {
+    this.router.navigate(['vista']);
   }
 }

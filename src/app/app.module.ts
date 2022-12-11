@@ -20,6 +20,7 @@ import { TransaccionesComponent } from './Components/transacciones/transacciones
 import { Panel2Component } from './Components/panel2/panel2.component';
 import { MinaContaComponent } from './mina-conta/mina-conta.component';
 import { AtendimentoComponent } from './atendimento/atendimento.component';
+import { BeneficiariosComponent } from './beneficiarios/beneficiarios.component';
 
 const maskConfigFunction: () => Partial<IConfig> = () => {
   return {
@@ -40,7 +41,8 @@ const maskConfigFunction: () => Partial<IConfig> = () => {
     Panel2Component,
     TransaccionesComponent,
     MinaContaComponent,
-    AtendimentoComponent
+    AtendimentoComponent,
+    BeneficiariosComponent
   ],
   imports: [
     BrowserModule,

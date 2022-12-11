@@ -109,56 +109,76 @@
                 </button>
     
             </div>
-            <div class="cuadro4 margen">
-                <div style="display: flex; margin-top: 30px; margin-left: 30px;">
-                    <div>
-                        <img src="assets\arrows-exchange-alt 2.png" alt="">
+            <div>
+                <div class="cuadro4 margen" >
+                    <div style="display: flex;  margin-left: 30px;">
+                        <div style="margin-top: 15px;">
+                            <img src="assets\arrows-exchange-alt 2.png" alt="">
+                        </div>
+                        <label style="color:#798F92 ;margin-top: 15px; margin-left: 5px; font-size: medium;">TRANSAÇÕES EM ABERTO</label>
                     </div>
-                    <p style="color:#798F92 ;margin-left: 5px; font-size: medium;">TRANSAÇÕES EM ABERTO</p>
-                </div>
-    
-    
-                <hr class="linea-discontinua">
-                <div style="color:#798F92 ;margin-left: 50px; margin-right:50px">
-                    <p class="text-center">No momento você não possui transações em aberto. </p>
-                    <p class="text-center"> Inicie um pagamento e ele será mostrado aqui nesta aba.</p>
-    
-                    <p class="text-center">Para ver seus pagamentos clique em Transações.</p>
-    
+        
+        
+                    <hr class="linea-discontinua">
+                    <div style="color:#798F92 ;margin-left: 50px; margin-right:50px;">
+                        <p class="text-center">No momento você não possui transações em aberto. </p>
+                        <p class="text-center"> Inicie um pagamento e ele será mostrado aqui nesta aba.</p>
+        
+                        <p class="text-center">Para ver seus pagamentos clique em Transações.</p>
+        
+                    </div>
+                    <div style="height: 20px"></div>
                 </div>
             </div>
-    
-            <div class="cuadro5 margen">
-                <div style="display: flex; margin-top: 30px;margin-left: 30px;">
-                    <div>
-                        <img src="assets\Layer 2-5.png" alt="">
+            
+            <div>
+                <div class="cuadro5 margen">
+                    <div style="display: flex; margin-top: 10px;margin-left: 30px;">
+                        <div style="margin-top: 15px;">
+                            <img src="assets\Layer 2-5.png" alt="">
+                        </div>
+                        <label style="color:#798F92 ;margin-left: 5px;font-size: medium; margin-top: 15px;">SEUS BENEFICIÁRIOS</label>
                     </div>
-                    <p style="color:#798F92 ;margin-left: 5px;font-size: medium;">SEUS BENEFICIÁRIOS</p>
-                </div>
-    
-    
-                <p class="margen1" style="color: #003940;">Pessoas que você pode transferir dinheiro via PIX ou TED.</p>
-                <div style="display: flex;" class="margen1">
-                    <div>
-                        <img src="assets\Layer 2-4.png" alt="">
+        
+        
+                    <p class="margen1" style="color: #003940;margin-top: 20px;">Pessoas que você pode transferir dinheiro via PIX ou TED.</p>
+                  
+                  <div *ngFor="let beneficiario of listaBeneficiario">
+                    <div style="display: flex;" class="margen1">
+                        <div>
+                            <img src="assets\Layer 2-4.png" alt="">
+                        </div>
+                        <p style="color:#798F92 ;margin-left: 5px;">{{beneficiario.nome}}</p>
                     </div>
-                    <p style="color:#798F92 ;margin-left: 5px;">Sérgio Petti</p>
-                </div>
-                <div style="display: flex;" class="margen1">
-                    <div>
-                        <img src="assets\Layer 2-4.png" alt="">
-                    </div>
-                    <p style="color:#798F92 ;margin-left: 5px;">Renata Marinho</p>
-                </div>
-                <div style="display: flex;" class="margen1">
-                    <div>
-                        <img src="assets\Layer 2-4.png" alt="">
-                    </div>
-                    <p style="color:#798F92 ;margin-left: 5px;">Tompson Ranieri</p>
-                </div>
     
-                <p class="text-center" style="color:#798F92 ;">VER TODOS</p>
+                  </div>
+                  
+                    <!-- <div style="display: flex;" class="margen1">
+                        <div>
+                            <img src="assets\Layer 2-4.png" alt="">
+                        </div>
+                        <p style="color:#798F92 ;margin-left: 5px;">Sérgio Petti</p>
+                    </div>
+                    <div style="display: flex;" class="margen1">
+                        <div>
+                            <img src="assets\Layer 2-4.png" alt="">
+                        </div>
+                        <p style="color:#798F92 ;margin-left: 5px;">Renata Marinho</p>
+                    </div>
+                    <div style="display: flex;" class="margen1">
+                        <div>
+                            <img src="assets\Layer 2-4.png" alt="">
+                        </div>
+                        <p style="color:#798F92 ;margin-left: 5px;">Tompson Ranieri</p>
+                    </div>
+         -->
+                    <p class="text-center" style="color:#798F92 ;">VER TODOS</p>
+                    <div style="height: 20px"></div>
+                </div>
+             
             </div>
+    
+            
     
         </div>
     
