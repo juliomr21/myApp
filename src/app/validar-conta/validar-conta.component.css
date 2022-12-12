@@ -1,0 +1,45 @@
+.text-pag{
+    text-align: left;
+font: normal normal bold 14px/22px Montserrat;
+letter-spacing: 0px;
+color: #003940;
+text-transform: uppercase;
+opacity: 1;
+margin-left: 55px;
+}
+.text1{
+   
+    margin-top: 30px;
+    text-align: center;
+letter-spacing: 0px;
+color: #003940;
+opacity: 1;
+}
+.text2{
+    margin-top: 15px;
+    margin-bottom: 25px;
+    color: var(--unnamed-color-9cb2b5);
+text-align: left;
+font: normal normal normal 13px/22px Montserrat;
+letter-spacing: 0px;
+color: #9CB2B5;
+opacity: 1;
+}
+.text3{
+    text-align: left;
+font: normal normal bold 13px/22px Montserrat;
+letter-spacing: 0px;
+color: #00CFB3;
+}
+
+.boton-alterar{
+    margin-top: 40px;
+    width: 308px;
+height: 64px;
+background: var(--unnamed-color-3dff91) 0% 0% no-repeat padding-box;
+background: #3DFF91 0% 0% no-repeat padding-box;
+border-radius: 10px;
+color: #003940;
+opacity: 1;
+font: normal normal bold 14px/22px Montserrat;
+}

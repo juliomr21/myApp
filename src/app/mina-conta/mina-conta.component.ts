@@ -12,7 +12,7 @@ export class MinaContaComponent implements OnInit {
 
   ngOnInit(): void {
   }
- funcion1(){
-  this.dataS.setOpcion(4);
+ funcion1(op:number){
+  this.dataS.setOpcion(op);
  }
 }

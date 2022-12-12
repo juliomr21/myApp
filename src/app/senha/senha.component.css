@@ -1,0 +1,44 @@
+.text-field{
+    font: normal normal normal 14px/32px Montserrat;
+letter-spacing: 0px;
+color: #003940;
+opacity: 1;
+}
+.text-pag{
+    text-align: left;
+font: normal normal bold 14px/22px Montserrat;
+letter-spacing: 0px;
+color: #003940;
+text-transform: uppercase;
+opacity: 1;
+margin-left: 55px;
+}
+.text1{
+   
+    margin-top: 30px;
+    text-align: center;
+letter-spacing: 0px;
+color: #003940;
+opacity: 1;
+}
+.text2{
+   
+    margin-top: 20px;
+    margin-bottom: 30px;
+    text-align: center;
+letter-spacing: 0px;
+color: #003940;
+opacity: 1;
+font: normal normal bold 14px/22px Montserrat;
+}
+.boton-alterar{
+    margin-top: 40px;
+    width: 308px;
+height: 64px;
+background: var(--unnamed-color-3dff91) 0% 0% no-repeat padding-box;
+background: #3DFF91 0% 0% no-repeat padding-box;
+border-radius: 10px;
+color: #003940;
+opacity: 1;
+font: normal normal bold 14px/22px Montserrat;
+}
