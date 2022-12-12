@@ -13,6 +13,8 @@ export class MinaContaComponent implements OnInit {
   ngOnInit(): void {
   }
  funcion1(op:number){
+  //let temp = this.dataS.getOpcion();
+  this.dataS.setVoltar(2);
   this.dataS.setOpcion(op);
  }
 }

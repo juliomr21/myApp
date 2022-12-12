@@ -22,6 +22,7 @@ export class DataStoreService {
   private userData$: Subject<any>;
   private opcion: number;
   private opcion$: Subject<number>
+  private voltar:number;
 
   constructor() { 
     this.user = '';
@@ -30,7 +31,9 @@ export class DataStoreService {
     this.userData$ = new Subject<any>();
     this.opcion = 0;
     this.opcion$ = new Subject<number>();
+    this.voltar = 0;
   }
+  setVoltar(op:number){this.voltar = op;}
   setUserData(userTemp: any) {
    // console.log(userTemp)
     this.userData = userTemp;
@@ -44,6 +47,7 @@ export class DataStoreService {
     this.opcion = op;
     this.opcion$.next(this.opcion);
   }
+  getVoltar(){return this.voltar;}
   getOpcion(){return this.opcion};
   getOpcion$():Observable<number>{return this.opcion$.asObservable();}
   getUserData$(): Observable<any> {

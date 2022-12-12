@@ -17,5 +17,6 @@ export class AtendimentoComponent implements OnInit {
   this.dataS.setOpcion(5);
   else
   this.dataS.setOpcion(6);
+  this.dataS.setVoltar(3);
  }
 }
