@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { DataStoreService } from '../../data-store.service';
 
 @Component({
   selector: 'app-panel2',
@@ -15,16 +16,20 @@ export class Panel2Component implements OnInit {
   atentendimentoStyle ={ 'color': '', 'font': 'normal normal  20px/14px Montserrat' }
   Operacion = 'Transações'
   logo_Operacion = 'assets/icon-transaccion.png'
-  constructor(private router:Router) { }
+  constructor(private router:Router, private dataS:DataStoreService) { }
 
   ngOnInit(): void {
+    let op = this.dataS.getOpcion();
+    this.dataS.getOpcion$().subscribe(res => {this.bt = res; console.log(this.bt)});
+    this.funcion1(op);
   }
   funcion1(op: number) {
-    this.bt = op;
+   // this.bt = op;
+   this.dataS.setOpcion(op);
     this.transaccionStyle = { 'color': '', 'font': 'normal normal  20px/14px Montserrat' }
     this.minhacontaStyle = { 'color': '', 'font': 'normal normal  20px/14px Montserrat' }
     this.atentendimentoStyle = { 'color': '', 'font': 'normal normal  20px/14px Montserrat' }
-    switch (op) {
+    switch (this.bt) {
 
       case 1: {
         console.log('op1');

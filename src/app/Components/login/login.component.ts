@@ -23,8 +23,8 @@ export class LoginComponent implements OnInit {
     private dataS: DataStoreService,
     private router: Router) {
     this.formPass = this.fb.group({
-      cpf: ['',[Validators.required,Validators.maxLength(11),Validators.minLength(11)]],
-      senha: ['',[Validators.required]]
+      cpf: ['06335968762',[Validators.required,Validators.maxLength(11),Validators.minLength(11)]],
+      senha: ['moreno123',[Validators.required]]
     });
 
   }
@@ -46,7 +46,7 @@ export class LoginComponent implements OnInit {
             localStorage.setItem('access-token', resLog.token.toString());
             localStorage.setItem('id-token', resLog.id_usuario.toString());
             this.http.userInfo().subscribe(res => {temp = res; this.dataS.setUser(temp.data.nome);});
-            this.router.navigate(['']);
+            this.router.navigate(['vista']);
   
           },
         error: () => {

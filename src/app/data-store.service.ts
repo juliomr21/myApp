@@ -20,12 +20,16 @@ export class DataStoreService {
   private user$: Subject<string>;
   private userData: any;
   private userData$: Subject<any>;
+  private opcion: number;
+  private opcion$: Subject<number>
 
   constructor() { 
     this.user = '';
     this.user$ = new Subject<string>();
     this.userData = {};
     this.userData$ = new Subject<any>();
+    this.opcion = 0;
+    this.opcion$ = new Subject<number>();
   }
   setUserData(userTemp: any) {
    // console.log(userTemp)
@@ -36,6 +40,12 @@ export class DataStoreService {
     this.user = usuario;
     this.user$.next(this.user);
   }
+  setOpcion(op:number){
+    this.opcion = op;
+    this.opcion$.next(this.opcion);
+  }
+  getOpcion(){return this.opcion};
+  getOpcion$():Observable<number>{return this.opcion$.asObservable();}
   getUserData$(): Observable<any> {
     return this.userData$.asObservable();
   }

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { DataStoreService } from '../data-store.service';
 
 @Component({
   selector: 'app-mina-conta',
@@ -7,9 +8,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MinaContaComponent implements OnInit {
 
-  constructor() { }
+  constructor(private dataS: DataStoreService) { }
 
   ngOnInit(): void {
   }
-
+ funcion1(){
+  this.dataS.setOpcion(4);
+ }
 }

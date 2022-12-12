@@ -21,6 +21,8 @@ import { Panel2Component } from './Components/panel2/panel2.component';
 import { MinaContaComponent } from './mina-conta/mina-conta.component';
 import { AtendimentoComponent } from './atendimento/atendimento.component';
 import { BeneficiariosComponent } from './beneficiarios/beneficiarios.component';
+import { AtendimentoEmailComponent } from './atendimento-email/atendimento-email.component';
+import { AtendimentoWhatsappComponent } from './atendimento-whatsapp/atendimento-whatsapp.component';
 
 const maskConfigFunction: () => Partial<IConfig> = () => {
   return {
@@ -42,7 +44,9 @@ const maskConfigFunction: () => Partial<IConfig> = () => {
     TransaccionesComponent,
     MinaContaComponent,
     AtendimentoComponent,
-    BeneficiariosComponent
+    BeneficiariosComponent,
+    AtendimentoEmailComponent,
+    AtendimentoWhatsappComponent
   ],
   imports: [
     BrowserModule,

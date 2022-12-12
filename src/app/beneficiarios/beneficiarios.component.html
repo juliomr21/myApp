@@ -5,16 +5,23 @@
     <label style="color:#003940; margin-left: 5px;font-size: medium; margin-top: 15px;">SEUS BENEFICIÁRIOS</label>
 </div>
 <label style="color:#798F92; margin-top: 20px;margin-bottom: 20px;">Pessoas que você pode transferir dinheiro via PIX ou TED.</label>
-<div *ngFor="let beneficiario of listaBeneficiario">
 
-    <div class="my-card">
-        <div class="margen1" style="display: flex;">
-            <div style="margin-left: auto;margin-right: auto;">
-                <img src="assets\Layer 2-4.png" alt="">
-            </div>
-            <p style="color:#798F92 ;margin-left: 5px;">{{beneficiario.nome}}</p>
-        </div>
-    
+<div *ngFor="let beneficiario of listaBeneficiario" class="row container">
+
+    <div class="my-card col-lg-4">
+      
+             <div style="margin-left: 50%;">
+                <img src="assets\Layer 2-4.png" alt="" >
+             </div>
+             <div class="text-center">
+                <label style="font: normal normal bold 13px Montserrat; color: #003940;">{{beneficiario.nome}}</label>
+             </div>
+              <label >CPF: {{beneficiario.cpf}}</label>
+              <label> CHAVE PIX: {{beneficiario.chave_pix}}</label>
+                
+            
+            
+     
 
     </div>
     
