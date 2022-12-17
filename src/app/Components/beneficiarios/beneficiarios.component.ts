@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { DataStoreService } from '../data-store.service';
-import { HttpServiceService } from '../Services/http-service.service';
+import { DataStoreService } from '../../data-store.service';
+import { HttpServiceService } from '../../Services/http-service.service';
 
 @Component({
   selector: 'app-beneficiarios',

@@ -14,17 +14,20 @@ import { AuthInterceptorService } from './auth-interceptor.service';
 import { ErrorInterceptor } from './error-interceptor.service';
 import { RegisterComponent } from './Components/register/register.component';
 import { CpfPipePipe } from './Pipe/cpf-pipe.pipe';
-import { VistaComponent } from './vista/vista.component';
+import { VistaComponent } from './Components/vista/vista.component';
 import { TransaccionComponent } from './src/appsrc/app/Components/transaccion/transaccion.component';
 import { TransaccionesComponent } from './Components/transacciones/transacciones.component';
 import { Panel2Component } from './Components/panel2/panel2.component';
-import { MinaContaComponent } from './mina-conta/mina-conta.component';
-import { AtendimentoComponent } from './atendimento/atendimento.component';
-import { BeneficiariosComponent } from './beneficiarios/beneficiarios.component';
-import { AtendimentoEmailComponent } from './atendimento-email/atendimento-email.component';
-import { AtendimentoWhatsappComponent } from './atendimento-whatsapp/atendimento-whatsapp.component';
-import { SenhaComponent } from './senha/senha.component';
-import { ValidarContaComponent } from './validar-conta/validar-conta.component';
+import { MinaContaComponent } from './Components/mina-conta/mina-conta.component';
+import { AtendimentoComponent } from './Components/atendimento/atendimento.component';
+import { BeneficiariosComponent } from './Components/beneficiarios/beneficiarios.component';
+import { AtendimentoEmailComponent } from './Components/atendimento-email/atendimento-email.component';
+import { AtendimentoWhatsappComponent } from './Components/atendimento-whatsapp/atendimento-whatsapp.component';
+import { SenhaComponent } from './Components/senha/senha.component';
+import { ValidarContaComponent } from './Components/validar-conta/validar-conta.component';
+import { DadosPessoaisComponent } from './Components/dados-pessoais/dados-pessoais.component';
+import { ValideContaSmsComponent } from './Components/valide-conta-sms/valide-conta-sms.component';
+import { TetComponent } from './Components/tet/tet.component';
 
 const maskConfigFunction: () => Partial<IConfig> = () => {
   return {
@@ -50,7 +53,10 @@ const maskConfigFunction: () => Partial<IConfig> = () => {
     AtendimentoEmailComponent,
     AtendimentoWhatsappComponent,
     SenhaComponent,
-    ValidarContaComponent
+    ValidarContaComponent,
+    DadosPessoaisComponent,
+    ValideContaSmsComponent,
+    TetComponent
   ],
   imports: [
     BrowserModule,

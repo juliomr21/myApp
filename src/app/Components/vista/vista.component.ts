@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { DataStoreService } from '../data-store.service';
+import { DataStoreService } from '../../data-store.service';
 import { Router } from '@angular/router';
-import { HttpServiceService } from '../Services/http-service.service';
+import { HttpServiceService } from '../../Services/http-service.service';
 
 @Component({
   selector: 'app-vista',
@@ -33,5 +33,7 @@ export class VistaComponent implements OnInit {
    
     this.router.navigate(['panel2']);
   }
-
+  valida_sms(){
+    this.router.navigate(['valide-sms'])
+  }
 }

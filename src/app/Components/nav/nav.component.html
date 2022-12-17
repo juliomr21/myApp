@@ -1,5 +1,5 @@
 <nav class="navbar navbar-expand-lg   " style="background-color: #ECF3F3; background: #ECF3F3 0% 0% no-repeat padding-box;">
-
+    <button [routerLink]="['xxx']">ok</button>
     <div class="container-fluid">
         <!-- <img src="assets/logo.svg" alt=""> -->
         
@@ -45,7 +45,7 @@
            <div *ngIf="userLog" style="margin-left: auto; display: flex;">
             <!-- <p class="ttext-white" style="margin-bottom: auto;margin-right:10px; margin-top: auto;">Bienvenido {{userLog}}</p> -->
             <button class=" btn btn-outline-success  " type="submit" [routerLink]="['']" (click)="logout()">SAIR</button>
-
+          
            </div>
             
         </div>

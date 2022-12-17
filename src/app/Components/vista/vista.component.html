@@ -102,11 +102,9 @@
                    </button>
                 <p style="color:#798F92 ; margin-top: 26px;margin-left: 12px;">Valor</p>
                 <input style="margin-bottom: 20px;" class="input-valor" placeholder="R$ 0,00">
-                <button *ngIf="bt!=0" class="boton-solicitar"
-                    style="margin-left: 12px; margin-right: 20px;margin-bottom: 20px;text-align: left;">
-                    <strong style="margin-left: 20px;"> Solicitar</strong> <img src="assets/Caminho-left.png"
-                        style="margin-left: 180px;">
-                </button>
+                
+                <button (click)="valida_sms()"*ngIf="bt!=0" class="boton-solicitar" > Solicitar <img src="assets/Caminho-left.png"
+                    style="margin-left: 180px;"> </button>
     
             </div>
             <div>
@@ -153,25 +151,7 @@
     
                   </div>
                   
-                    <!-- <div style="display: flex;" class="margen1">
-                        <div>
-                            <img src="assets\Layer 2-4.png" alt="">
-                        </div>
-                        <p style="color:#798F92 ;margin-left: 5px;">Sérgio Petti</p>
-                    </div>
-                    <div style="display: flex;" class="margen1">
-                        <div>
-                            <img src="assets\Layer 2-4.png" alt="">
-                        </div>
-                        <p style="color:#798F92 ;margin-left: 5px;">Renata Marinho</p>
-                    </div>
-                    <div style="display: flex;" class="margen1">
-                        <div>
-                            <img src="assets\Layer 2-4.png" alt="">
-                        </div>
-                        <p style="color:#798F92 ;margin-left: 5px;">Tompson Ranieri</p>
-                    </div>
-         -->
+                  
                     <p class="text-center" style="color:#798F92 ; cursor: pointer;"(click)="funcion1(4)">VER TODOS</p>
                     <div style="height: 20px"></div>
                 </div>

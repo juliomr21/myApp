@@ -111,6 +111,8 @@ background: var(--unnamed-color-3dff91) 0% 0% no-repeat padding-box;
 background: #3DFF91 0% 0% no-repeat padding-box;
 border-radius: 10px;
 opacity: 1;
+margin-left: 15px;
+margin-bottom: 20px;
 }
 .input-valor{
     width: 309px; 
