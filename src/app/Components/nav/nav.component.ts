@@ -10,13 +10,15 @@ import { DataStoreService } from '../../data-store.service';
 })
 export class NavComponent implements OnInit {
 
-  userLog = '';
+  userLog:string|null;
   constructor( private dataS:DataStoreService) {
-
+    this.userLog = '';
    }
 
   ngOnInit(): void {
    this.dataS.getUser$().subscribe(res => this.userLog =  res);
+  // if(!localStorage.getItem('nome'))
+  // this.userLog = localStorage.getItem('nome')
   }
  
    logout(){

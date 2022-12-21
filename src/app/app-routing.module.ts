@@ -10,6 +10,8 @@ import { TransaccionesComponent } from './Components/transacciones/transacciones
 import { Panel2Component } from './Components/panel2/panel2.component';
 import { ValideContaSmsComponent } from './Components/valide-conta-sms/valide-conta-sms.component';
 import { TetComponent } from './Components/tet/tet.component';
+import { AddBeneficiarioComponent } from './Components/add-beneficiario/add-beneficiario.component';
+import { RsenhaComponent } from './rsenha/rsenha.component';
 
 const routes: Routes = [
   {path:'',
@@ -25,23 +27,32 @@ const routes: Routes = [
   },
   {
     path:'register',
-    component:RegisterComponent
+    component:RegisterComponent,
+    // canActivate: [VigilanteGuard]
+  },
+  {
+    path:'rsenha',
+    component:RsenhaComponent
   },
   {
     path:'vista',
-    component:VistaComponent
+    component:VistaComponent,
+    canActivate: [VigilanteGuard]
+    
   },
   {
     path: 'panel2',
-    component: Panel2Component
+    component: Panel2Component,
+    canActivate: [VigilanteGuard]
   },
   {
     path: 'valide-sms',
     component: ValideContaSmsComponent
   },
   {
-    path: 'xxx',
-    component: TetComponent
+    path: 'add-beneficiario',
+    component:AddBeneficiarioComponent,
+    canActivate: [VigilanteGuard]
   }
 ];
 

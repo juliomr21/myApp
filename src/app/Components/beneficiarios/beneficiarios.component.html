@@ -1,29 +1,36 @@
 <div style="display: flex; margin-top: 10px;margin-left: 60px;">
-    <div style="margin-top: 15px;">
+    <div>
         <img src="assets\Layer 2-5.png" alt="">
     </div>
-    <label style="color:#003940; margin-left: 5px;font-size: medium; margin-top: 15px;">SEUS BENEFICIÁRIOS</label>
+    <p class="text-pag">SEUS BENEFICIÁRIOS</p>
 </div>
 <label style="color:#798F92; margin-top: 20px;margin-bottom: 20px; margin-left: 60px;">Pessoas que você pode transferir dinheiro via PIX ou TED.</label>
 
-<div *ngFor="let beneficiario of listaBeneficiario" class="row container" style="margin-left: 60px; margin-top:55px">
+<div class="row container">
+    <div *ngFor="let beneficiario of listaBeneficiario" class="col-lg-4" style=" margin-top:55px">
 
-    <div class="my-card col-lg-4">
-      
-             <div style="margin-left: 50%;">
-                <img src="assets\Layer 2-4.png" alt="" >
-             </div>
-             <div class="text-center">
-                <label style="font: normal normal bold 13px Montserrat; color: #003940;">{{beneficiario.nome}}</label>
-             </div>
-              <label >CPF: {{beneficiario.cpf}}</label>
-              <label> CHAVE PIX: {{beneficiario.chave_pix}}</label>
-                
-            
-            
-     
+        <div class="my-card ">
+          
+                 <div style="margin-left: 50%;">
+                    <img src="assets\Layer 2-4.png" alt="" >
+                 </div>
+                 <div class="text-center">
+                    <label style="font: normal normal bold 13px Montserrat; color: #003940;">{{beneficiario.nome}}</label>
+                 </div>
+                  <label >CPF: {{beneficiario.cpf|cpfPipe}}</label>
+                  <label> CHAVE PIX: {{beneficiario.chave_pix}}</label>
+              </div>
+        
+      </div>
+</div>
 
+ 
+  <div style="display: flex; margin-top: 100px;margin-left: 40%;cursor: pointer;" (click)="mover()">
+    <p class="add-b-text">Adicionar beneficiário</p>
+    <div>
+        <img src="assets\Layer 2-5.png" style="margin-left: 20px;">
     </div>
     
-  </div>
+</div>
+ 
 

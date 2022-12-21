@@ -1,3 +1,83 @@
+<div style="background: #F9FCFC 0% 0% no-repeat padding-box;opacity: 1;">
+    <div style="height: 20px;"></div>
+    <div class="panel-login centro">
+        <div style="height: 50px;"></div>
+        <div style="display: flex;width: fit-content; " class="centro">
+            <div><img src="assets/icon-minha-conta.png" style="width: 35px;height: 35px;  ">
+            </div>
+            <div>
+                <p style="text-align: left; margin-left: 10px;
+    font: normal normal bold 21px/42px Montserrat;
+    letter-spacing: 0px;
+    color: #003940;">Login</p>
+            </div>
+        </div>
+        <form [formGroup]="formPass" class="centro" style="width: fit-content;">
+            <div style="margin-top: 45px;max-width: 312px; " class="centro">
+                <label class=" " for="user-fild" style="font: normal normal medium 16px/19px Montserrat;
+                letter-spacing: 0px;
+                color: #003940;">CPF</label>
+                <div>
+                    <input [ngClass]="cpf_fail" class="form-control campo " type="text" name="user-fild"
+                        formControlName="cpf" mask="000.000.000-00" placeholder="123.456.789-01">
+                    <div *ngIf="cpf_fail === 'is-invalid'" class="invalid-feedback"
+                        style="margin-left:10%; font-size: small;">
+                        O campo CPF deve conter 11 números.
+                    </div>
+                </div>
+            </div>
+
+            <div class="" style="margin-top: 25px;max-width: 312px;" class="centro">
+                <label class=" " for="pass-fild" style="font: normal normal medium 16px/19px Montserrat;
+                letter-spacing: 0px;
+                color: #003940;">Senha</label>
+                <div>
+                    <input [ngClass]="senha_fail" class="form-control campo " type="password" name="pass-fild"
+                        formControlName="senha">
+                    <div *ngIf="senha_fail === 'is-invalid'" class="invalid-feedback"
+                        style="margin-left:10%; font-size: small;">
+                        O campo Senha é obrigatório.
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="centro" style="margin-top: 44px; width: 377px;">
+                <button class="boton-verde-azul btn" (click)="login()">
+                    <div style="display: flex;">
+                        <div style="margin-top: auto; margin-left: 30px;font: normal normal bold 16px/17px Montserrat;">ENTRAR</div>
+                        <div style="margin-left: auto;margin-right: 30px; "><img src="assets/Caminho-left.png"></div>
+                    </div>
+                </button>
+            </div>
+
+            <div class="centro text-center" style="margin-top: 25px;">
+                <a style="text-decoration: underline;
+                font: normal normal normal 15px/19px Montserrat;
+                letter-spacing: 0px;
+                
+                color: #004CFF;cursor: pointer;" (click)="rsenha()">Recuperar senha</a>
+            </div>
+            <div style="margin-top:45px">
+
+            </div>
+            <div class="centro" style="max-width: 272px;">
+                <button class="boton-criar " (click)="newLogin()">
+                    <div style="display: flex;">
+                        <div style="margin-left: 30px;font: normal normal bold 16px/17px Montserrat;">CRIAR CONTA</div>
+                        <div style="margin-left: auto;margin-right: 30px; "><img src="assets/Caminho-left.png"></div>
+                    </div>
+                </button>
+            </div>
+        </form>
+    </div>
+    <div style="height: 100px;"></div>
+</div>
+
+
+
+
+<!-- 
 <form [formGroup]="formPass" class="card card-login shadow">
     <h3 style="margin-top: 10%;" class="text-center">Login</h3>
     
@@ -31,6 +111,6 @@
    
     <button class="btn btn-outline-success form-control" style="margin-top: 5%;" (click)="login()" >Login</button>
     <button class="btn btn-success form-control" style="margin-top: 3%;" (click)="newLogin()">Resgister</button>
-    <!-- <a href="" class="form-label" (click)="f()">Register</a> -->
+  
     
-</form>
+</form> -->

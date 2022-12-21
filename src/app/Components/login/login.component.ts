@@ -31,8 +31,8 @@ export class LoginComponent implements OnInit {
 
 
   ngOnInit(): void {
-    localStorage.setItem('access-token', '');
-    localStorage.setItem('id-token','');
+    // localStorage.setItem('access-token', '');
+    // localStorage.setItem('id-token','');
   }
   login() {
     const Body = this.formPass.value;
@@ -45,7 +45,10 @@ export class LoginComponent implements OnInit {
             let temp:any;
             localStorage.setItem('access-token', resLog.token.toString());
             localStorage.setItem('id-token', resLog.id_usuario.toString());
-            this.http.userInfo().subscribe(res => {temp = res; this.dataS.setUser(temp.data.nome);});
+            this.http.userInfo().subscribe(res => {
+              temp = res; 
+              localStorage.setItem('nome',temp.data.nome);
+              this.dataS.setUser(temp.data.nome);});
             this.router.navigate(['vista']);
   
           },
@@ -79,6 +82,9 @@ export class LoginComponent implements OnInit {
  }
   newLogin() {
     this.router.navigate(['register']);
+  }
+  rsenha() {
+    this.router.navigate(['rsenha']);
   }
 
 }

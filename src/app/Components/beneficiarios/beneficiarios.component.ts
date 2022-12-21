@@ -21,5 +21,10 @@ export class BeneficiariosComponent implements OnInit {
    this.http.getBeneficiario().subscribe(res => {this.datosBeneficiario = res; this.listaBeneficiario = this.datosBeneficiario.data});
    
  }
+ mover(){
+  this.dataS.setVoltar(4);
+  this.dataS.setOpcion(10);
+  // this.router.navigate(['add-beneficiario']);
+ }
 
 }

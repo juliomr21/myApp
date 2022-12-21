@@ -9,28 +9,28 @@
     <div style="display: flex;">
         <div>
             <p class="text1">Nome</p>
-            <p>Pedro</p>
+            <p>{{dados_pessoais.nome}}</p>
         </div>
         <div style="margin-left: 140px;">
             <p class="text1">Sobrenome</p>
             <p>Petti</p>
         </div>
     </div>
-    <div style="margin-top: 30px;">
+    <div style="margin-top: 20px;">
         <p class="text1">E-mail</p>
-        <p>pppedrao007@gmail.com</p>
+        <p>{{dados_pessoais.email}}</p>
     </div>
-    <div style="margin-top: 30px;">
+    <div style="margin-top: 20px;">
         <p class="text1">Telefone</p>
         <div style="display: flex;">
-            <p>21 99966 9966</p>
+            <p>{{dados_pessoais.telefone}}</p>
             <p class="text1" style="margin-left: 10px;margin-top: 6px;">(Para alterar seu telefone, vá até a aba "Validar Conta" no menu.)</p>
         </div>
        
     </div>
-    <div style="margin-top: 30px;">
+    <div style="margin-top: 20px;">
         <p class="text1">CPF</p>
-        <p>205151551515</p>
+        <p>{{dados_pessoais.cpf}}</p>
     </div>
     
 
@@ -51,39 +51,39 @@
 <div style="margin-top: 30px;margin-left: 55px;">
     <div style="margin-top: 30px;">
         <p class="text1">CEP</p>
-        <p>26555551</p>
+        <p>{{endereco.cep}}</p>
     </div>
     <div style="margin-top: 30px;">
         <p class="text1">Endereço</p>
-        <p>Rua Augusto</p>
+        <p>{{endereco.endereco}}</p>
     </div>
     <div style="display: flex;">
         <div>
             <p class="text1">Número</p>
-            <p>166</p>
+            <p>{{endereco.numero}}</p>
         </div>
         <div style="margin-left: 140px;">
             <p class="text1">Complemento</p>
-            <p>N/A</p>
+            <p>{{endereco.complemento}}</p>
         </div>
     </div>
     <div style="margin-top: 30px;">
         <p class="text1">Bairro</p>
-        <p>Centro</p>
+        <p>{{endereco.bairro}}</p>
     </div>
     <div style="display: flex;">
         <div>
             <p class="text1">UF</p>
-            <p>RJ</p>
+            <p>{{endereco.estado}}</p>
         </div>
         <div style="margin-left: 140px;">
             <p class="text1">Municipio</p>
-            <p>Mesquita</p>
+            <p>{{endereco.cidade}}</p>
         </div>
     </div>
     <div style="margin-top: 30px;">
         <p class="text1">Renda mensal</p>
-        <p>R$ 5.000,00</p>
+        <p>R$ {{endereco.renda}}</p>
     </div>
 
     <p class="text1">É PEP?</p>

@@ -10,9 +10,9 @@ import { CookieService } from 'ngx-cookie-service';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'myApp';
+  title = 'Livre.trade';
   ngOnInit(){
-    localStorage.setItem('access-token','');
+     localStorage.setItem('access-token','');
   }
 
 }

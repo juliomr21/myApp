@@ -26,11 +26,11 @@
             <hr>
             <!-- <div style="margin-left: auto;margin-right: auto; " >
                 <img src="assets\emprestimo.png" alt="" style="margin-left: 15px">
-                <p style="color:#798F92 ;">Empréstimos</p>
+                <p style="color:#798F92 ;">Empréstimos</p> 
             </div> -->
         </div>
         
-        <div class="col-lg-9" style=" border-left: 1px solid #9CB2B5; height: 1020px" >
+        <div class="col-lg-9" style=" border-left: 1px solid #9CB2B5; height: 1020px " >
          
             <div style="display: flex;">
                 <button (click)="voltar()" class="boton-voltar"
@@ -53,6 +53,7 @@
             <app-senha *ngIf="bt == 7"></app-senha>
             <app-validar-conta *ngIf="bt == 8"></app-validar-conta>
             <app-dados-pessoais *ngIf="bt == 9"></app-dados-pessoais>
+            <app-add-beneficiario *ngIf="bt == 10"></app-add-beneficiario>
         </div>
 
        

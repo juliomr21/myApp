@@ -123,6 +123,18 @@ export class HttpServiceService {
     return this.http.get(Url, { headers });
 
   }
+  dados_pessoais() {
+    let token = localStorage.getItem('access-token')!;
+    let id = localStorage.getItem('id-token')!
+   // let Url = environment.UrlBase + `user/dados-usuario/`;
+   let Url = `http://localhost/api_livre_20/public/user/dados-usuario`
+   let headers = new HttpHeaders({
+    "Content-Type": "application/json",
+    "Authorization": token
+  });
+    return this.http.get(Url, { headers });
+
+  }
   get(Url: string) {
     return this.http.get(Url);
   }
@@ -144,6 +156,18 @@ export class HttpServiceService {
     }
 
   }
+
+  getdados(){
+    const token: string = localStorage.getItem('access-token')!;
+    
+    let headers = new HttpHeaders({
+      "Content-Type": "application/json",
+      "Authorization": token
+    });
+  
+    
+    return this.http.get('http://localhost/api_livre_20/public/user/dados-usuario',{headers});
+   }
 
 }
 

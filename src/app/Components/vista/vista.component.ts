@@ -24,7 +24,9 @@ export class VistaComponent implements OnInit {
        this.temp = res; this.dataS.setUser(this.temp.data.nome);  
        this.usuario = this.temp.data.nome;
        this.http.getBeneficiario().subscribe(res => {this.datosBeneficiario = res; this.listaBeneficiario = this.datosBeneficiario.data});
-      })
+           })
+         
+ 
    
   
   }

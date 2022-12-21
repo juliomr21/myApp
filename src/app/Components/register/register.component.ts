@@ -14,6 +14,7 @@ export class RegisterComponent implements OnInit {
    this.form = fb.group({
       cpf:[],
       senha: [''],
+      rsenha: [''],
       email: [''],
       telefone:[],
       nome: ['']

@@ -1,0 +1,78 @@
+.boton-bancon{
+    width: 351px;
+height: 77px;
+background: #FFFFFF 0% 0% no-repeat padding-box;
+
+border-radius: 10px;
+margin-bottom: 20px;
+opacity: 1;
+
+}
+.form-control{
+    width: 351px;
+height: 46px;
+border: 1px solid var(--unnamed-color-9cb2b5);
+background: #FFFFFF 0% 0% no-repeat padding-box;
+border: 1px solid #9CB2B5;
+border-radius: 5px;
+margin-bottom: 20px;
+opacity: 1;
+}
+.boton-verde{
+    width: 351px;
+height: 64px;
+background: var(--unnamed-color-3dff91) 0% 0% no-repeat padding-box;
+background: #3DFF91 0% 0% no-repeat padding-box;
+border-radius: 10px;
+
+opacity: 1;
+}
+.info-boton{
+    font: normal normal bold 20px/24px Montserrat;
+    margin-left: auto;
+    letter-spacing: 0px;
+    color: #003940;
+}
+.text-pag{
+    text-align: left;
+font: normal normal bold 14px/22px Montserrat;
+letter-spacing: 0px;
+color: #003940;
+text-transform: uppercase;
+opacity: 1;
+margin-left: 10px;
+}
+.info-pag{
+width: 213px;
+height: 48px;
+text-align: left;
+font: normal normal bold 20px/24px Montserrat;
+letter-spacing: 0px;
+color: #003940;
+margin-top: 60px;
+}
+.info-pag1{
+    text-align: left;
+    font: normal normal normal 15px/16px Montserrat;
+    letter-spacing: 0px;
+    color: #003940;
+    opacity: 1;width: 308px;
+height: 38px;
+}
+.info-input{
+    text-align: left;
+font: normal normal normal 15px/16px Montserrat;
+letter-spacing: 0px;
+color: #003940;
+opacity: 1;
+}
+.combox{
+    width: 351px;
+height: 46px;
+border: 1px solid var(--unnamed-color-9cb2b5);
+background: #FFFFFF 0% 0% no-repeat padding-box;
+border: 1px solid #9CB2B5;
+border-radius: 5px;
+margin-bottom: 20px;
+opacity: 1;
+}

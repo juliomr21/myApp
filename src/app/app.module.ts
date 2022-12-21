@@ -28,6 +28,9 @@ import { ValidarContaComponent } from './Components/validar-conta/validar-conta.
 import { DadosPessoaisComponent } from './Components/dados-pessoais/dados-pessoais.component';
 import { ValideContaSmsComponent } from './Components/valide-conta-sms/valide-conta-sms.component';
 import { TetComponent } from './Components/tet/tet.component';
+import { AddBeneficiarioComponent } from './Components/add-beneficiario/add-beneficiario.component';
+import { RsenhaComponent } from './rsenha/rsenha.component';
+import { RsenhaSmsComponent } from './rsenha-sms/rsenha-sms.component';
 
 const maskConfigFunction: () => Partial<IConfig> = () => {
   return {
@@ -56,7 +59,10 @@ const maskConfigFunction: () => Partial<IConfig> = () => {
     ValidarContaComponent,
     DadosPessoaisComponent,
     ValideContaSmsComponent,
-    TetComponent
+    TetComponent,
+    AddBeneficiarioComponent,
+    RsenhaComponent,
+    RsenhaSmsComponent
   ],
   imports: [
     BrowserModule,
