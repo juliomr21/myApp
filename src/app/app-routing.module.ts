@@ -12,6 +12,8 @@ import { ValideContaSmsComponent } from './Components/valide-conta-sms/valide-co
 import { TetComponent } from './Components/tet/tet.component';
 import { AddBeneficiarioComponent } from './Components/add-beneficiario/add-beneficiario.component';
 import { RsenhaComponent } from './rsenha/rsenha.component';
+import { RsenhaSmsComponent } from './rsenha-sms/rsenha-sms.component';
+import { AlterarSenhaComponent } from './alterar-senha/alterar-senha.component';
 
 const routes: Routes = [
   {path:'',
@@ -35,10 +37,18 @@ const routes: Routes = [
     component:RsenhaComponent
   },
   {
+    path:'rsenha-sms',
+    component:RsenhaSmsComponent
+  },
+  {
     path:'vista',
     component:VistaComponent,
     canActivate: [VigilanteGuard]
     
+  },
+  {
+    path:'alterar-senha',
+    component:AlterarSenhaComponent
   },
   {
     path: 'panel2',

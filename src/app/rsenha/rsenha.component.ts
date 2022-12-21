@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-rsenha',
@@ -7,9 +8,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RsenhaComponent implements OnInit {
  cpf_fail = ''
-  constructor() { }
+  constructor(private router:Router) { }
 
   ngOnInit(): void {
+  }
+  proximo(){
+    this.router.navigate(['rsenha-sms']);
   }
 
 }

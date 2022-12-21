@@ -1,7 +1,7 @@
-<div style="background: #F9FCFC 0% 0% no-repeat padding-box;opacity: 1; max-height: 785px">
+<div style="background: #F9FCFC 0% 0% no-repeat padding-box;opacity: 1; max-height: 100%">
     <div style="height: 30px;"></div>
     <div class="panel-rsenha centro">
-        <div style="height: 50px;"></div>
+        <div style="height: 40px;"></div>
         <div style="display: flex;width: fit-content; " class="centro">
             <div><img src="assets/icon-minha-conta.png" style="width: 35px;height: 35px;  ">
             </div>
@@ -11,13 +11,32 @@
             </div>
            
         </div>
-        <div class="centro" style="margin-top: 40px;max-width: 312px; width: fit-content;" >
-            <label class=" " for="user-fild" style="font: normal normal medium 16px/19px Montserrat;
+       
+        <div class="centro " style="margin-top: 30px;max-width: 312px; width: fit-content;" >
+            
+            <p class="text-azul">Um código token foi enviado para o seu e-mail:</p>
+            <div style="display: flex;align-items: center;  max-width: 312px; height: 53px;    background: #F9FCFC 0% 0% no-repeat padding-box; opacity: 1;">
+               <div class="centro">
+                <p class="text-imp " style="font: normal normal bold 16px/20px Montserrat;">tom**********@gmail.com</p>
+  
+               </div>
+            </div>
+        </div>
+            <div class="centro" style="margin-top: 20px; width: 377px;">
+                <p class="text-azul">Informe o código enviado por e-mail:</p>
+            </div>
+            <!-- <div class="centro" style="margin-top: 5px; width: 300px;">
+                <p class="text-imp text-center" style="text-align: left;font: normal normal medium 16px/19px Montserrat;">Informe o código enviado por e-mail:</p>
+            </div> -->
+
+            <div class="centro" style="max-width: 312px; width: fit-content;">
+
+                <label class=" " for="user-fild" style="font: normal normal medium 16px/19px Montserrat;
             letter-spacing: 0px;
-            color: #003940;">Informe seu CPF</label>
+            color: #003940;">Informe o código enviado por e-mail:</label>
             <div >
-                <input  class="form-control campo " type="text" name="user-fild"
-                    mask="000.000.000-00" placeholder="123.456.789-01">
+                <input  class="form-control campo text-center" type="text" name="user-fild"
+                    mask="000000" placeholder="- - - - - -">
                 <!-- <div *ngIf="cpf_fail === 'is-invalid'" class="invalid-feedback"
                     style="margin-left:10%; font-size: small;">
                     O campo CPF deve conter 11 números.
@@ -31,14 +50,18 @@
                 <p class="text-imp" style="margin-top: 3px;">Importante: </p>
 
             </div>
-            <div style="max-width: 321px;width: max-content;height: 55px;">
-                <p class="text-imp">Após informar seu CPF será enviado um código de recuperação para o seu e-mail de cadastro.</p>
+            <div style="max-width: 311px;width: max-content;height: 55px;">
+                <p class="text-imp">Não tem mais acesso ao seu e-mail de cadastro? Fale agora mesmo com o atendimento.</p>
             </div>
+            </div>
+        
+           
+            
             
            
-        </div>
-        <div class="centro" style="margin-top: 44px; width: 377px;">
-            <button class="boton-verde-azul btn" >
+      
+        <div class="centro" style="margin-top: 40px; width: 377px;">
+            <button class="boton-verde-azul btn"(click)="alterar_senha()" >
                 <div style="display: flex;">
                     <div style="margin-top: auto; margin-left: 30px;font: normal normal bold 16px/17px Montserrat;">PRÓXIMO</div>
                     <div style="margin-left: auto;margin-right: 30px; "><img src="assets/Caminho-left.png"></div>

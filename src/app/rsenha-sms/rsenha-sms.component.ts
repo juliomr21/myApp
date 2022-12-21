@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-rsenha-sms',
@@ -7,9 +8,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RsenhaSmsComponent implements OnInit {
 
-  constructor() { }
+  constructor(private route:Router) { }
 
   ngOnInit(): void {
   }
-
+  alterar_senha(){
+    this.route.navigate(['alterar-senha']);
+  }
 }

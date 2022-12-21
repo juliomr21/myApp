@@ -31,6 +31,7 @@ import { TetComponent } from './Components/tet/tet.component';
 import { AddBeneficiarioComponent } from './Components/add-beneficiario/add-beneficiario.component';
 import { RsenhaComponent } from './rsenha/rsenha.component';
 import { RsenhaSmsComponent } from './rsenha-sms/rsenha-sms.component';
+import { AlterarSenhaComponent } from './alterar-senha/alterar-senha.component';
 
 const maskConfigFunction: () => Partial<IConfig> = () => {
   return {
@@ -62,7 +63,8 @@ const maskConfigFunction: () => Partial<IConfig> = () => {
     TetComponent,
     AddBeneficiarioComponent,
     RsenhaComponent,
-    RsenhaSmsComponent
+    RsenhaSmsComponent,
+    AlterarSenhaComponent
   ],
   imports: [
     BrowserModule,
