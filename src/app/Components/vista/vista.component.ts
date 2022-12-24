@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { DataStoreService } from '../../data-store.service';
 import { Router } from '@angular/router';
 import { HttpServiceService } from '../../Services/http-service.service';
+import { firstValueFrom, lastValueFrom } from 'rxjs';
 
 @Component({
   selector: 'app-vista',
@@ -20,15 +21,26 @@ export class VistaComponent implements OnInit {
   ngOnInit(): void {
     
    
-    this.http.userInfo().subscribe(res => {
-       this.temp = res; this.dataS.setUser(this.temp.data.nome);  
-       this.usuario = this.temp.data.nome;
-       this.http.getBeneficiario().subscribe(res => {this.datosBeneficiario = res; this.listaBeneficiario = this.datosBeneficiario.data});
-           })
-         
- 
+   
+ this.cargar_datos();
    
   
+  }
+   async cargar_datos(){
+
+    try{
+      this.usuario = localStorage.getItem('nome')!;
+      const response:any = await firstValueFrom(this.http.getBeneficiario());
+      this.listaBeneficiario = response.data;
+           
+    }
+    catch( reason){
+      localStorage.setItem('access-token','');
+      localStorage.setItem('id-token','');
+      localStorage.setItem('nome','')
+      this.dataS.setUser('');
+      this.router.navigate(['login'])}
+   
   }
   funcion1(op:number){
     this.dataS.setOpcion(op);

@@ -21,12 +21,11 @@ export class Panel2Component implements OnInit {
 
   ngOnInit(): void {
     let op = this.dataS.getOpcion();
-    this.dataS.getOpcion$().subscribe(res => {this.bt = res; console.log(this.bt)});
+    this.dataS.getOpcion$().subscribe(res => {this.bt = res; });
     this.funcion1(op);
   }
   funcion1(op: number) {
-   // this.bt = op;
-  //  this.v_voltar = this.bt;
+  
    this.dataS.setVoltar(this.bt);
    this.dataS.setOpcion(op);
     this.transaccionStyle = { 'color': '', 'font': 'normal normal  20px/14px Montserrat' }
@@ -46,7 +45,7 @@ export class Panel2Component implements OnInit {
         this.minhacontaStyle.color = '#003940';
         this.minhacontaStyle.font = 'normal normal bold 20px/14px Montserrat'
         this.Operacion = 'Minha conta'
-        this.logo_Operacion = 'assets/icon-minha-conta.png'
+        this.logo_Operacion = 'assets/dados_pessoais1.png'
       };break;
       case 3: {
         

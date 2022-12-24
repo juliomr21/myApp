@@ -5,6 +5,7 @@ import { environment } from 'src/environments/environment';
 import { CookieService } from 'ngx-cookie-service';
 import { Router } from '@angular/router';
 import { DataStoreService } from '../../data-store.service';
+import { firstValueFrom } from 'rxjs';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -31,37 +32,31 @@ export class LoginComponent implements OnInit {
 
 
   ngOnInit(): void {
-    // localStorage.setItem('access-token', '');
-    // localStorage.setItem('id-token','');
+   
   }
-  login() {
+  
+  async login(){
     const Body = this.formPass.value;
     const Url = environment.UrlBase + "auth/login";
-    if(this.validateLogin()){
-      this.http.post(Url, Body).subscribe({
-        next:
-          res => {
-            let resLog: any = res;
-            let temp:any;
-            localStorage.setItem('access-token', resLog.token.toString());
-            localStorage.setItem('id-token', resLog.id_usuario.toString());
-            this.http.userInfo().subscribe(res => {
-              temp = res; 
-              localStorage.setItem('nome',temp.data.nome);
-              this.dataS.setUser(temp.data.nome);});
-            this.router.navigate(['vista']);
-  
-          },
-        error: () => {
-          this.sesion_fail = true;
-          this.erro_message = "CPF ou senha errados!"
-  
-        }
-  
-      });
-
+    if(this.validateLogin())
+    {
+      try{
+        const response:any = await firstValueFrom(this.http.post(Url,Body)) ;
+        localStorage.setItem('access-token', response.token.toString());
+        localStorage.setItem('id-token', response.id_usuario.toString());
+        const res:any = await firstValueFrom(this.http.userInfo());
+        localStorage.setItem('nome',res.data.nome);
+        this.dataS.setUser(res.data.nome);
+        this.router.navigate(['vista']);
+       
+      }
+      catch(reason){
+        this.sesion_fail = true;
+        console.log("CPF ou senha errados!")
+        this.erro_message = "CPF ou senha errados!"
+      }
     }
-   
+    
   }
   validateLogin(){
     const controls = this.formPass.controls;

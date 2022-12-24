@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { environment } from 'src/environments/environment';
 import { HttpServiceService } from './Services/http-service.service';
 import { CookieService } from 'ngx-cookie-service';
+import { DataStoreService } from './data-store.service';
 
 @Component({
   selector: 'app-root',
@@ -11,8 +12,10 @@ import { CookieService } from 'ngx-cookie-service';
 })
 export class AppComponent {
   title = 'Livre.trade';
+  constructor(private dataS:DataStoreService){}
   ngOnInit(){
-     localStorage.setItem('access-token','');
+    this.dataS.setUser(localStorage.getItem('nome')!);
+    //  localStorage.setItem('access-token','');
   }
 
 }

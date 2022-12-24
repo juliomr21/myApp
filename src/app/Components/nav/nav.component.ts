@@ -10,16 +10,31 @@ import { DataStoreService } from '../../data-store.service';
 })
 export class NavComponent implements OnInit {
 
-  userLog:string|null;
+  userLog:any;
+  
+  navAzul = {background: "#ECF3F3"}
+  navBlanco = {background: "#FFFFFF"}
+  navColor = this.navBlanco;
   constructor( private dataS:DataStoreService) {
-    this.userLog = '';
+    dataS.getUser$().subscribe(res => {
+      this.userLog =  res;
+      if(this.userLog!="")
+       this.navColor = this.navAzul;
+      else
+      this.navColor = this.navBlanco;
+    });
+   
    }
 
   ngOnInit(): void {
-   this.dataS.getUser$().subscribe(res => this.userLog =  res);
-  // if(!localStorage.getItem('nome'))
-  // this.userLog = localStorage.getItem('nome')
-  }
+   this.dataS.getUser$().subscribe(res => {
+    this.userLog =  res;
+    if(this.userLog!="")
+     this.navColor = this.navAzul;
+    else
+    this.navColor = this.navBlanco;
+  });
+    }
  
    logout(){
    localStorage.setItem('access-token','');
