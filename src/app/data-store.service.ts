@@ -29,7 +29,7 @@ export class DataStoreService {
     this.user$ = new Subject<string>();
     this.userData = {};
     this.userData$ = new Subject<any>();
-    this.opcion = 0;
+    this.opcion = 2;
     this.opcion$ = new Subject<number>();
     this.voltar = 0;
   }

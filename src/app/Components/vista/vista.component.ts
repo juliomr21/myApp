@@ -3,6 +3,7 @@ import { DataStoreService } from '../../data-store.service';
 import { Router } from '@angular/router';
 import { HttpServiceService } from '../../Services/http-service.service';
 import { firstValueFrom, lastValueFrom } from 'rxjs';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-vista',
@@ -27,10 +28,10 @@ export class VistaComponent implements OnInit {
   
   }
    async cargar_datos(){
-
+   const Url:string = environment.UrlBase + 'user/beneficiario';
     try{
       this.usuario = localStorage.getItem('nome')!;
-      const response:any = await firstValueFrom(this.http.getBeneficiario());
+      const response:any = await firstValueFrom(this.http.getH(Url));
       this.listaBeneficiario = response.data;
            
     }

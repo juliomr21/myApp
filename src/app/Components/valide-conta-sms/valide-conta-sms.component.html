@@ -1,61 +1,96 @@
 <div style="background: #ECF3F3;">
-    <div class="row">
-        <div class="card-sms container col-lg-9">
-            <p class="text-yellow">Solicitado apenas nesta vez.</p>
-            <div style="margin-top: 45px;margin-left:175px;margin-right: auto;"><img src="assets/valida-sms.png"></div>
-            <p class="text-pag text-center ">Valide sua conta via SMS</p>
-            <p class="text-center" style="margin-left: 73px;margin-right: 73px">Um código foi enviado por SMS para o seu celular:</p>
-            <p class="text-center">(21) 21 950502255</p>
-            <div>
-                <label for="nome" class="form-label"> Insira o código para validar:</label>
-                <input type="text" class="form-control" id="nome" >
-            </div>
-            <div style="display: flex;">
+    <div style="height: 35px;">
+
+    </div>
+    <div style="height: 120px; width: 760px; margin-left: auto;margin-right: auto;">
+     <p style="text-align: left;
+     font: normal normal medium 16px/28px Montserrat;
+     letter-spacing: 0px;
+     color: #003940;">Resumo da transação:     </p>
+     <div>
+        <p style="text-align: left;
+    font: normal normal normal 13px/20px Montserrat;
+    letter-spacing: 0px;
+    color: #003940;
+    opacity: 1;">Valide seu celular para visualizar o quadro resumo com todos os valores e poder iniciar seu pedido de pagamento.</p>
+
+     </div>
+     <hr >
+    </div>
+     
+    <div class="card-sms" style="margin-left: auto;margin-right: auto;margin-top: 30px;">
+        <div style="height: 30px;" >
+
+        </div>
+        <p class="text-yellow">Solicitado apenas nesta vez.</p>
+        <div style="margin-left: auto;margin-right: auto;width: 48px;margin-top: 25px;">
+            <img src="assets/valida-sms.png" >
+        </div>
+        <div style="width: 260px; margin-right: auto;margin-left: auto;">
+            <p class="text-pag ">Valide sua conta via SMS</p>
+         </div>
+         <div style="width: 278px; margin-right: auto;margin-left: auto;">
+            <p class="text-pag " style="text-align: center;font: normal normal normal 15px/28px Montserrat;">Um código foi enviado por SMS para o seu celular:</p>
+         </div>
+         <div style="width: 220px; margin-right: auto;margin-left: auto;">
+            <p  style="text-align: center;
+            font: normal normal normal 25px/25px Montserrat;
+            letter-spacing: 0px;
+            color: #003940;">(21) 21 950502255</p>
+         </div>
+         <div style="width: 302px; margin-right: auto;margin-left: auto;">
+            <label for="nome" class="my-label"> Insira o código para validar:</label>
+            <input type="text" class="form-control" id="nome" placeholder="- - - - - -" >
+        </div>
+        <div style="width: 335px; margin-right: auto;margin-left: auto; ">
+            <div style="display: flex;margin-top: 35px;">
                 <div>
                     <img src="assets/sms.png" class="img-pag">
                 </div>
-                <p >Código enviado com sucesso. Aguarde até recebê-lo.</p>
+                <div>
+                    <p class="text-msg">Código enviado com sucesso. Aguarde até recebê-lo.</p>
+                </div>
             </div>
-            <div style="display: flex;">
+            <div style="display: flex;margin-top: 35px;">
                 <div>
                     <img src="assets/sms-error.png" class="img-pag">
                 </div>
-                <p >Erro. Parece que algo deu errado, tente novamente.</p>
+                <div>
+                    <p class="text-msg">Erro. Parece que algo deu errado, tente novamente.</p>
+                </div>
             </div>
-            <div style="display: flex;">
+            <div style="display: flex;margin-top: 35px;">
                 <div>
                     <img src="assets/sms-error.png" class="img-pag">
                 </div>
-                <p >Aguarde um minutinho, o SMS pode demorar um pouco devido a área de cobertura.</p>
+                <div>
+                    <p class="text-msg">Aguarde um minutinho, o SMS pode demorar um pouco devido a área de cobertura.</p>
+                </div>
             </div>
-            <button class="boton-solicitar">Próximo <img src="assets/Caminho-left.png"></button>
-            <div style="width: 302px;
-            height: 64px;
-            
-            /* UI Properties */
-            
-            background: #ECF3F3 0% 0% no-repeat padding-box;
-            border-radius: 32px;
-            opacity: 1;">
-            <p class="text-center">Reenviar código Token</p>
-
-                    
-            </div>
-            <button style="width: 425px;
-            height: 64px;
-            transform: matrix(-1, 0, 0, -1, 0, 0);
-            
-            
-            
-            background: #FFFFFF 0% 0% no-repeat padding-box;
-            border-radius: 10px;
-            opacity: 1;">
-    voltar
+        </div>
+        <div style="margin-left: auto;margin-right: auto; width: 390px;">
+            <button class="boton-verde " (click)="pagamento()">
+                <div style="display: flex;">
+                    <div style="margin-left: 30px;">Próximo</div>
+                    <div style="margin-left: auto;margin-right: 30px; "><img src="assets/Caminho-left.png"></div>
+                </div>
             </button>
         </div>
-        <div class="col-lg-2">
-            dddd
+        <div style="margin-left: auto;margin-right: auto; width: 305px; margin-top: 35px;">
+            <button class="boton-light" >Reenviar código Token</button>
         </div>
+        
     </div>
+    <div style="width: 425px;margin-left:auto; margin-right:auto;margin-top: 28px; background: #FFFFFF 0% 0% no-repeat padding-box;border-radius: 10px;">
+        <button class="boton-voltar">
+            <div style="display: flex;">
+                <div style="margin-left: 30px;">VOLTAR</div>
+                <div style="margin-left: auto;margin-right: 30px; "><img src="assets/voltar.png"></div>
+            </div>
+        </button>
+    </div>
+    <div style="height: 35px;">
 
+    </div>
+    
 </div>

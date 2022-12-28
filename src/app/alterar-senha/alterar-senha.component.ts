@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { HttpServiceService } from '../Services/http-service.service';
 
 @Component({
   selector: 'app-alterar-senha',
@@ -7,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AlterarSenhaComponent implements OnInit {
 
-  constructor() { }
+  constructor(private http: HttpServiceService) { }
 
   ngOnInit(): void {
   }

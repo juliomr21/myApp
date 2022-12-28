@@ -1,20 +1,31 @@
 .card-sms{
     width: 425px;
-height: 877px;
+    /* height: 649px; */
 background: #FFFFFF 0% 0% no-repeat padding-box;
 border-radius: 10px;
 margin-left: auto;
 /* margin-right: auto; */
 }
-.text-yellow{
-    text-align: left;
-    font: normal normal normal 15px/20px Montserrat;
+.barra-progreso{
+    width: 425px; height: 8px;background: #FFFFFF; margin-left: auto;margin-right: auto;
+}
+.barra-estado{
+    width: 25%; height: 8px;background: #3DFF91; 
+}
+.text-claro{
+    font: normal normal normal 15px/30px Montserrat;
     letter-spacing: 0px;
     color: #003940;
-    opacity: 1; background:yellow;
-    width: fit-content;
-    margin-top: 45px;
-    margin-left: 30px;
+}
+.text-azul{
+    font: normal normal bold 20px/30px Montserrat;
+letter-spacing: 0px;
+color: #00808F;
+}
+.text-span{
+    font: normal normal normal 20px/30px Montserrat;
+    letter-spacing: 0px;
+    color: #003940;
 }
 .text-pag{
     text-align: left;
@@ -22,8 +33,21 @@ margin-left: auto;
     letter-spacing: 0px;
     color: #003940;
     opacity: 1;
+    margin-left: 30px;
 /* margin-left: 55px; */
 margin-top: 13px;
+
+}
+.text-neg{
+    text-align: left;
+    font: normal normal bold 20px/24px Montserrat;
+    letter-spacing: 0px;
+    color: #003940;
+    opacity: 1;
+   
+/* margin-left: 55px; */
+margin-top: 13px;
+
 }
 .boton-solicitar{
     width: 309px;
@@ -37,9 +61,9 @@ margin-bottom: 20px;
 }
 .my-label{
     text-align: left;
-font: normal normal normal 15px/22px Montserrat;
-letter-spacing: 0px;
-color: #003940;
+    font: normal normal normal 15px/16px Montserrat;
+    letter-spacing: 0px;
+    color: #003940;
 }
 .form-control{
     text-align: center;
@@ -47,17 +71,15 @@ color: #003940;
 background: #FFFFFF 0% 0% no-repeat padding-box;
 border: 1px solid #003940;
 border-radius: 5px;
-color: #9CB2B5;
+color: #003940;
 opacity: 1;
-font: normal normal normal 18px/22px Montserrat;
+font: normal normal bold 27px/33px Montserrat;
 }
 .text-msg{
     text-align: left;
-    margin-left: 5px;
-font: normal normal normal 14px/18px Montserrat;
-letter-spacing: 0px;
-color: #003940;
-opacity: 1;
+    font: normal normal normal 33px/45px Open Sans;
+    letter-spacing: 0px;
+    color: #003940;
 }
 .boton-verde{
     width: 388px;
@@ -90,5 +112,23 @@ border: #FFFFFF;
 font: normal normal bold 20px/24px Montserrat;
 letter-spacing: 0px;
 color: #003940;
+opacity: 1;
+}
+.my-range{
+    
+    /* border-radius: 50px; */
+    width: 360px;
+    background: #003940 0% 0% no-repeat padding-box;
+    border-color: #003940;
+    opacity: 1;
+}
+.tipo-pagamento{
+    width: 309px;
+height: 72px;
+background: #FFFFFF 0% 0% no-repeat padding-box;
+border: 2px solid #ECF3F3;
+border-radius: 10px;
+margin-left: auto;
+margin-right: auto;
 opacity: 1;
 }

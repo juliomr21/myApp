@@ -7,6 +7,13 @@ text-transform: uppercase;
 opacity: 1;
 
 }
+.text-span{
+    margin-top: 30px;
+    font: normal normal normal 15px/22px Montserrat;
+    letter-spacing: 0px;
+    color: #003940;
+    opacity: 1;
+}
 .text1{
    
     margin-top: 30px;
@@ -30,8 +37,21 @@ opacity: 1;
 font: normal normal bold 13px/22px Montserrat;
 letter-spacing: 0px;
 color: #00CFB3;
+margin-left: 5px;
+margin-top: 3px;
 }
 
+.text-neg{
+    text-align: left;
+    font: normal normal bold 20px/24px Montserrat;
+    letter-spacing: 0px;
+    color: #003940;
+    opacity: 1;
+   
+/* margin-left: 55px; */
+margin-top: 13px;
+
+}
 .boton-alterar{
     margin-top: 40px;
     width: 308px;
@@ -41,5 +61,36 @@ background: #3DFF91 0% 0% no-repeat padding-box;
 border-radius: 10px;
 color: #003940;
 opacity: 1;
-font: normal normal bold 14px/22px Montserrat;
+font: normal normal bold 20px/24px Montserrat;
+}
+.campo{
+    width: 302px;
+height: 56px;
+background: #FFFFFF 0% 0% no-repeat padding-box;
+border: 1px solid #003940;
+border-radius: 5px;
+opacity: 1;
+}
+.my-label{
+    text-align: left;
+    font: normal normal normal 15px/16px Montserrat;
+    letter-spacing: 0px;
+    color: #003940;
+}
+.boton-enviar-token{
+    width: 233px;
+height: 64px;
+background: #F3FAFA 0% 0% no-repeat padding-box;
+border-radius: 32px;
+border: #F3FAFA;
+font: normal normal bold 13px/16px Montserrat;
+color: #003940;
+opacity: 1;
+}
+.text-imp{
+    /* text-align: left; */
+    font: normal normal normal 13px/20px Montserrat;
+    letter-spacing: 0px;
+    color: #003940;
+    opacity: 1;
 }

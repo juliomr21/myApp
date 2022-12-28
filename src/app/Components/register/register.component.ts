@@ -32,7 +32,7 @@ text_error = '';
     const Url = environment.UrlBase + "create";
     
     var data = this.form.value;
-    this.Http.post(Url,data).subscribe(res => console.log(res));
+    this.Http.post(Url,data).subscribe(() => this.form.reset());
     }
   }
   cambio(){
@@ -42,8 +42,8 @@ text_error = '';
     this.acceso = true;
     const aux1 = this.form.value.senha;
     const aux2 = this.form.value.rsenha;
-    console.log(aux2);
-    if(aux1 != aux2){console.log("mmm");
+    
+    if(aux1 != aux2){
     this.text_error = "no coinciden las senha"
     return false;
   }

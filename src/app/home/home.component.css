@@ -53,3 +53,15 @@ color: #9CB2B5;
 border: #283239;
 opacity: 1;
 }
+.text-foot{
+    text-align: left;
+font: normal normal bold 15px/43px Montserrat;
+letter-spacing: 0px;
+color: #003940;
+}
+.text-informa{
+    text-align: left;
+font: normal normal normal 10px/21px Montserrat;
+letter-spacing: 0px;
+color: #003940;
+}

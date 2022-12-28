@@ -1,6 +1,6 @@
 <div style="display: flex; margin-top: 10px;margin-left: 60px;">
     <div>
-        <img src="assets\Layer 2-5.png" alt="">
+        <img src="assets/beneficiario1.png" alt="">
     </div>
     <p class="text-pag">SEUS BENEFICIÁRIOS</p>
 </div>
@@ -14,7 +14,7 @@ height: 1220px;" class="container">
         <div style="display: flex;">
             <p [ngStyle]="text_pix" style="margin-top: 10px; text-align: left;font: normal normal bold 23px/16px Montserrat; letter-spacing: 0px; margin-left: 38px;">PIX</p> 
              <div  *ngIf="operacion == 0" style="margin-top: 5px; margin-left: auto;">
-                <img  src="assets/check.png" >
+                <img  src="assets/ok-transf.png" >
             </div>
         </div>
        </button>
@@ -22,7 +22,7 @@ height: 1220px;" class="container">
         <div  style="display: flex;">
             <p [ngStyle]="text_ted" style="margin-top: 10px; text-align: left;font: normal normal bold 23px/16px Montserrat; letter-spacing: 0px; margin-left: 38px;">TED</p> 
              <div  *ngIf="operacion == 1" style="margin-top: 5px; margin-left: auto;">
-                <img  src="assets/check.png" >
+                <img  src="assets/ok-transf.png" >
             </div>
         </div>
         <!-- <P style="text-align: left;
@@ -36,9 +36,9 @@ height: 1220px;" class="container">
     <input type="text" class="form-control" id="cpf" formControlName="cpf" mask="000.000.000-00" placeholder="000.000.000-00" >
     <label class="info-input "> Tipo de Conta</label>
     <select type="text" class="combox" id="tconta" formControlName="tipo_conta" >
-        <option disabled selected >- SELECCIONE CONTA -</option>
-        <option value="1">CONTA CORRENTE</option>
-        <option value="2">CONTA POUPANÇA</option>
+        <option disabled selected [value]="0" >- SELECCIONE CONTA -</option>
+        <option [value]="1">CONTA CORRENTE</option>
+        <option [value]="2">CONTA POUPANÇA</option>
     </select>
     <div style="display: flex;">
         <div>

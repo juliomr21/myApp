@@ -5,23 +5,67 @@
     <div>
         <p class="text-pag">VALIDAR CONTA (TOKEN)</p>
     </div>
-   
+
 </div>
 
 <div style="width: 380px;margin-left:auto; margin-right:auto">
-    <p class="text1">Valide seu telefone mediante o código que receberá no celular:</p>
-    <p class="text2 text-center">Número do celular:</p>
-    <!-- <div style="background: #F9FCFC 0% 0% no-repeat padding-box;width: 302px;
-    height: 56px; border-radius: 5px; margin-top:10px">
-       
-    </div> -->
-    <p class="" style="background: #F9FCFC ; width:fit-content; margin-left: auto;margin-right: auto;">21 99966 9966</p>
-    
-    <p class="text3 text-center">VALIDADO</p>
-    <div style="margin-right: auto; margin-left:15px">
-        <button class="boton-alterar" >Alterar meu número</button>
+    <div *ngIf="alterar">
+        <div class="text-span">
+            <p class="text-center">Valide seu telefone mediante o código que receberá no celular:</p>
+        </div>
+      
+        <div style="width: 305px; margin-left: auto;margin-right: auto;">
+            <p class="text-imp text-center">Número do celular:</p>
+            <p class="" style="background: #F9FCFC ; width:fit-content; margin-left: auto;margin-right: auto;">{{numero}}
+            </p>
+            <div style="display: flex; width: 100px;margin-left: auto;margin-right: auto;">
+                <div>
+                    <img src="assets/ok.png" >
+                    
+                </div>
+                <div>
+                    <p class="text3">VALIDADO</p>
+                </div>
+            </div>
+            
+            <div>
+                <button class="boton-alterar" (click)="alterar_num()">Alterar meu número</button>
+            </div>
+        </div>       
     </div>
-   
-    <p style="margin-top: 50px;" class="text2">Importante:</p>
-    <p class="text2">Você receberá o código Token através do seu serviço de SMS. Certifique-se de que seu celular possui área de cobertura e está disponível para recebimento de mensagens.</p>
+    <div *ngIf="!alterar">
+        <div class="text-span">
+            <p class="text-center"> Valide seu telefone usando o código que receberá no celular:</p>
+        </div>
+        <div style="width: 305px; margin-left: auto;margin-right: auto;">
+            <div style=" margin-top: 25px;">
+                <label for="num-cel" class="my-label"> Número do celular:</label>
+                <input type="text" class="campo" id="num-cel"[(ngModel)]="numero_nuevo" >
+            </div>
+            <div style=" margin-top: 25px;">
+                <label for="num-cod" class="my-label"> Insira o código para validar:</label>
+                <input type="text" class="campo" id="num-cod" [(ngModel)]="sms">
+            </div>
+            <div>
+                <button class="boton-alterar" (click)="salvar()">Salvar</button>
+            </div>
+            <div style=" width: 233px;; margin-left: auto;margin-right: auto; margin-top: 25px;">
+                <button class="boton-enviar-token"(click)="solicitar_token()">Enviar código Token</button>
+            </div>
+        </div>
+
+    </div>
+
+     <div style="display: flex;margin-top: 50px;">
+        <div>
+            <img src="assets/info.png" >
+        </div>
+        <div>
+            <b class="text-imp" style="margin-left: 3px;">Importante:</b>
+        </div>
+
+     </div>
+    
+    <p class="text-imp">Você receberá o código Token através do seu serviço de SMS. Certifique-se de que seu celular possui
+        área de cobertura e está disponível para recebimento de mensagens.</p>
 </div>

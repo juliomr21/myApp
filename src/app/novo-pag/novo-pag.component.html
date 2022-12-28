@@ -1,0 +1,222 @@
+<div style="background: #ECF3F3;">
+    <div style="height: 35px;">
+
+    </div>
+    <div style="height: 120px; width: 760px; margin-left: auto;margin-right: auto;">
+        <p style="text-align: left;
+     font: normal normal medium 16px/28px Montserrat;
+     letter-spacing: 0px;
+     color: #003940;">Resumo da transação: </p>
+        <div>
+            <p style="text-align: left;
+    font: normal normal normal 13px/20px Montserrat;
+    letter-spacing: 0px;
+    color: #003940;
+    opacity: 1;">Valide seu celular para visualizar o quadro resumo com todos os valores e poder iniciar seu pedido de
+                pagamento.</p>
+
+        </div>
+        <hr>
+    </div>
+     <div class="barra-progreso" style="display: flex;">
+        <div *ngIf="vista >= 1" class="barra-estado" > </div>
+        <div *ngIf="vista >= 2" class="barra-estado" > </div>
+        <div *ngIf="vista >= 3" class="barra-estado" > </div>
+    </div>
+
+       
+
+
+    <div class="card-sms" style="margin-left: auto;margin-right: auto;margin-top: 30px;">
+        <div style="height: 30px;">
+
+        </div>
+        <!-- vista 1 -->
+        <div *ngIf="vista == 1">
+            <p class="text-pag">Novo pagamento:</p>
+        <div style="width: 362px; margin-right: auto;margin-left: auto;">
+            <label for="nome" class="my-label" style="margin-bottom: 20px;"> Valor da transferência</label>
+            <input type="text" class="form-control" id="nome" value="R$ 3.000,00">
+        </div>
+        <div style="width: 302px;margin-left: 35px;margin-top: 20px;">
+            <p class="text-claro">Você precisa ter o limite disponível de:</p>
+            <p class="text-azul"> R$ 1.923,84</p>
+        </div>
+        <div style="margin-left: 35px;margin-top: 35px;">
+            <p class="text-claro">Parcelamento</p>
+        </div>
+        <div style="width: 360px; margin-right: auto;margin-left: auto;">
+            <div style="display: flex;" class="text-msg">
+                <div style="margin-left: 10px;">
+                    <p>12x</p>
+                </div>
+                <div style="margin-left: auto;">
+                    <p>R$ 400,00</p>
+                </div>
+            </div>
+            <div style="margin-top: 30px;">
+                <input type="range" class="form-range" min="0" max="12" step="3">
+            </div>
+
+        </div>
+        </div>
+        <!-- fin vista1 -->
+        <!-- vista 2 -->
+        <div *ngIf="vista == 2">
+            <p class="text-pag">Dados do cartão de crédito:</p>
+            <form style="width: 345px;margin-left: auto;margin-right: auto;">
+                <div>
+                    <label for="num-carton" class="my-label"> Número do cartão:</label>
+                    <input type="text" class="form-control" id="num-carton" >
+                </div>
+                <div style="display: flex; margin-top: 25px;">
+                    <div>
+                        <label for="valide" class="my-label"> Validade</label>
+                        <input type="text" class="form-control" id="valide" style="width: 189px;" >
+                    </div>
+                    <div style="width: 134px;margin-left: auto;">
+                        <label for="cvv" class="my-label"> CVV ou CVC</label>
+                        <input type="text" class="form-control" id="cvv"  >
+                    </div>
+                </div>
+                <div style=" margin-top: 25px;">
+                    <label for="num-carton" class="my-label"> Número do cartão:</label>
+                    <input type="text" class="form-control" id="num-carton" >
+                </div>
+            </form>
+        </div>
+        <!-- fin vista 2 -->
+        <!-- vista 3 -->
+        <div *ngIf="vista == 3">
+            <div style="display: flex; width: 302px;margin-left: auto;margin-right: auto;">
+                <div>
+                    <img src="assets/error-card.png" >
+                </div>
+                <div>
+                    <p class="text-pag">Pré-autorização negada.</p>
+                </div>
+
+            </div>
+            <hr style=" width: 425px; height: 1px; border: 2px dashed #003940;">
+           
+            <div style="width: 334px;margin-left: auto;margin-right: auto;">
+                <p class="text-neg" >Quase lá...</p>
+                <p class="text-span">Sua transação teve a cobrança de Pré-autorização negada.<br><br>Valor da cobrança: </p>
+                <p class="text-neg">R$ 6.899,80</p>
+                <p class="text-span">Antes de tentar novamente, que tal verificar seu limite disponível?<br><br> Veja outros possíveis motivos para a não autorização <ins>clicando aqui</ins>.</p>
+                <div>
+                    <p class="text-neg" style="margin-top: 40px;margin-left: 15px;">Pagamento solicitado:</p>
+                </div>
+                <div class="tipo-pagamento">
+                    <div style="width: 150px; margin-left: auto;margin-right: auto;">
+                        <img src="assets/Pix.png" >
+                    </div>
+                </div>
+            </div>
+            <hr style=" width: 425px; height: 1px; border: 2px dashed #003940;">
+            <div style="margin-left: auto;margin-right: auto; width: 390px;margin-top: 45px;">
+                <button class="boton-verde "(click)="proximo()" >
+                    <div style="display: flex;">
+                        <div style="margin-left: 30px;">Tentar novamente</div>
+                        <div style="margin-left: auto;margin-right: 30px; "><img src="assets/Caminho-left.png"></div>
+                    </div>
+                </button>
+            </div>
+           
+        <div style="height: 35px;">
+    
+        </div>
+    
+            
+        </div>
+      
+        <!-- fin vista 3 -->
+        <!-- vista 4 -->
+        <div *ngIf="vista == 4">
+            <div style="display: flex; width: 302px;margin-left: auto;margin-right: auto;">
+                <div>
+                    <img src="assets/ok-card.png" >
+                </div>
+                <div>
+                    <p class="text-pag">Pré-autorização realizada com sucesso!</p>
+                </div>
+
+            </div>
+            <hr style=" width: 425px; height: 1px; border: 2px dashed #003940;">
+           
+            <div style="width: 334px;margin-left: auto;margin-right: auto;">
+                <p class="text-neg" >Quase lá...</p>
+                <p class="text-span">A Livre.digital reservou o valor: <b class="text-neg">R$ 6.899,80</b> . Atenção: esta reserva ainda não é uma cobrança.</p>
+                    <br><br>
+                  <p class="text-span">  Clique em <b class="text-neg">"Próximo"</b> para concluir seu cadastro e informar os dados de quem irá receber o pagamento (beneficiário).</p>
+                <div>
+                    <p class="text-neg" style="margin-top: 40px;margin-left: 15px;">Pagamento solicitado:</p>
+                </div>
+                <div class="tipo-pagamento">
+                    <div style="width: 150px; margin-left: auto;margin-right: auto;">
+                        <img src="assets/Pix.png" >
+                    </div>
+                </div>
+            </div>
+            <hr style=" width: 425px; height: 1px; border: 2px dashed #003940;">
+            <div style="margin-left: auto;margin-right: auto; width: 390px;margin-top: 45px;">
+                <button class="boton-verde " >
+                    <div style="display: flex;">
+                        <div style="margin-left: 30px;">Próximo</div>
+                        <div style="margin-left: auto;margin-right: 30px; "><img src="assets/Caminho-left.png"></div>
+                    </div>
+                </button>
+            </div>
+           
+        <div style="height: 35px;">
+    
+        </div>
+    
+            
+        </div>
+        <!-- fin vista4 -->
+        <div *ngIf="vista < 3">
+            <div style="margin-left: auto;margin-right: auto; width: 390px;margin-top: 45px;">
+                <button class="boton-verde " (click)="proximo()">
+                    <div style="display: flex;">
+                        <div style="margin-left: 30px;">Próximo</div>
+                        <div style="margin-left: auto;margin-right: 30px; "><img src="assets/Caminho-left.png"></div>
+                    </div>
+                </button>
+            </div>
+            <div style="height: 30px;">
+    
+            </div>
+        </div>
+        
+
+       
+
+    </div>
+    <div *ngIf="vista < 3"
+        style="width: 425px;margin-left:auto; margin-right:auto;margin-top: 28px; background: #FFFFFF 0% 0% no-repeat padding-box;border-radius: 10px;">
+        <button class="boton-voltar"(click)="voltar()">
+            <div style="display: flex;">
+                <div style="margin-left: 30px;">VOLTAR</div>
+                <div style="margin-left: auto;margin-right: 30px; "><img src="assets/voltar.png"></div>
+            </div>
+        </button>
+    </div>
+    <div *ngIf="vista > 2" style="width: 425px; margin-left: auto;margin-right: auto;margin-top: 35px;" >
+        <p class="text-span">Precisa de ajuda?</p>
+    </div>
+    <div *ngIf="vista > 2"
+    style="width: 425px;margin-left:auto; margin-right:auto;margin-top: 28px; background: #FFFFFF 0% 0% no-repeat padding-box;border-radius: 10px;">
+    <button class="boton-voltar">
+        <div style="display: flex;width: 350px; margin-left: auto;margin-right: auto;">
+            <div ><img src="assets/whatsapp.png"></div>
+            <div style="margin-left: 30px;">Atendimento WhatsApp</div>
+            
+        </div>
+    </button>
+</div>
+    <div style="height: 35px;">
+
+    </div>
+
+</div>

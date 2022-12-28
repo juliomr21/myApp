@@ -40,14 +40,14 @@ form: FormGroup;
       agencia: [''],
       conta: [''],
       digito: 2,
-      tipo_conta: ['']
+      tipo_conta: ['0']
     })
   }
 
   ngOnInit(): void {
     this.http.get_banco().subscribe(res=> { 
       let temp:any = res;  this.bancos = temp.data;
-      console.log(this.bancos);});
+     });
   }
   tipo_operacion(op:number){
     if(op == 0)
@@ -70,7 +70,7 @@ form: FormGroup;
     
   }
   add_beneficiario(){
-    this.http.add_beneficiario(this.form.value).subscribe(res => console.log(res));
+    this.http.add_beneficiario(this.form.value).subscribe();
   }
   pre_val(){
     var aux = this.form.value.agencia;
@@ -90,6 +90,6 @@ form: FormGroup;
       digito: digito,
       tipo_conta: this.form.value.tipo_conta
     }
-    this.http.add_beneficiario(benef).subscribe(res => console.log(res));
+    this.http.add_beneficiario(benef).subscribe(()=>this.form.reset);
   }
 }

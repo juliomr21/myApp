@@ -42,6 +42,22 @@ export class HttpServiceService {
   getUser() {
     return this.user;
   }
+  getH(Url:string){
+    const token: string = localStorage.getItem('access-token')!;
+    let headers = new HttpHeaders({
+    // "Content-Type": "application/json",
+    "Authorization": token
+  });
+  return this.http.get(Url,{headers});
+  }
+  postH(Url:string,data:any){
+    const token: string = localStorage.getItem('access-token')!;
+    let headers = new HttpHeaders({
+    // "Content-Type": "application/json",
+    "Authorization": token
+  });
+  return this.http.post(Url,data,{headers});
+  }
  getBeneficiario(){
   const token: string = localStorage.getItem('access-token')!;
   
@@ -185,6 +201,64 @@ export class HttpServiceService {
   
     
     return this.http.get('http://localhost/api_livre_20/public/user/dados-usuario',{headers});
+   }
+   cambiar_senha(data:any){
+    const token: string = localStorage.getItem('access-token')!;
+    
+    let headers = new HttpHeaders({
+      "Content-Type": "application/json",
+      "Authorization": token
+    });
+  
+    
+    return this.http.post('http://localhost/api_livre_20/public/user/redefinir-senha',data,{headers});
+
+   }
+   solicitar_token(data:any){
+
+    const token: string = localStorage.getItem('access-token')!;
+    
+    let headers = new HttpHeaders({
+      // "Content-Type": "application/json",
+        "Authorization": token
+    });
+  
+    
+    return this.http.post('http://localhost/api_livre_20/public/user/validar-conta',data,{headers});
+
+   }
+   validar_token(data:any){
+    const token: string = localStorage.getItem('access-token')!;
+    
+    let headers = new HttpHeaders({
+      // "Content-Type": "application/json",
+        "Authorization": token
+    });
+  
+    
+    return this.http.post('http://localhost/api_livre_20/public/user/validar-token',data,{headers});
+    
+   }
+   actualizar_endereco(data:any,id:any){
+    const token: string = localStorage.getItem('access-token')!;
+    let headers = new HttpHeaders({
+      "Content-Type": "application/json",
+        "Authorization": token
+    });
+  
+    return this.http.put(`http://localhost/api_livre_20/public/user/dados-usuario/${id}`,data,{headers});
+   }
+   actualizar_dados_pesoais(data:any,id:any){
+    const token: string = localStorage.getItem('access-token')!;
+    let headers = new HttpHeaders({
+      //  "Content-Type": "application/x-www-form-urlencoded",
+      "Content-Type": "application/json",
+        "Authorization": token
+    });
+       
+    //  data = {"nome": "USUARIO Dss"}
+    //  console.log(data1);
+    return this.http.put(`http://localhost/api_livre_20/public/user/usuarios/${id}`,data,{headers});
    }
 
 }

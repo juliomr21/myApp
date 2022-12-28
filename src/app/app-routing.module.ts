@@ -14,13 +14,17 @@ import { AddBeneficiarioComponent } from './Components/add-beneficiario/add-bene
 import { RsenhaComponent } from './rsenha/rsenha.component';
 import { RsenhaSmsComponent } from './rsenha-sms/rsenha-sms.component';
 import { AlterarSenhaComponent } from './alterar-senha/alterar-senha.component';
+import { VigilaCriarLoginGuard } from './vigila-criar-login.guard';
+import { NovoPagComponent } from './novo-pag/novo-pag.component';
 
 const routes: Routes = [
   {path:'',
-   component: HomeComponent
+   component: HomeComponent,
+   canActivate: [VigilaCriarLoginGuard]
   },
   {path:'login',
-   component: LoginComponent
+   component: LoginComponent,
+   canActivate: [VigilaCriarLoginGuard]
   },
   {
     path:'formulario',
@@ -30,7 +34,7 @@ const routes: Routes = [
   {
     path:'register',
     component:RegisterComponent,
-    // canActivate: [VigilanteGuard]
+    canActivate: [VigilaCriarLoginGuard]
   },
   {
     path:'rsenha',
@@ -48,7 +52,8 @@ const routes: Routes = [
   },
   {
     path:'alterar-senha',
-    component:AlterarSenhaComponent
+    component:AlterarSenhaComponent,
+    canActivate: [VigilanteGuard]
   },
   {
     path: 'panel2',
@@ -60,10 +65,16 @@ const routes: Routes = [
     component: ValideContaSmsComponent
   },
   {
+    path: 'novo-pagamento',
+    component: NovoPagComponent,
+    // canActivate: [VigilanteGuard]
+  },
+  {
     path: 'add-beneficiario',
     component:AddBeneficiarioComponent,
     canActivate: [VigilanteGuard]
   }
+  
 ];
 
 @NgModule({

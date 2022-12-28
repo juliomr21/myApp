@@ -44,7 +44,10 @@ export class LoginComponent implements OnInit {
         const response:any = await firstValueFrom(this.http.post(Url,Body)) ;
         localStorage.setItem('access-token', response.token.toString());
         localStorage.setItem('id-token', response.id_usuario.toString());
-        const res:any = await firstValueFrom(this.http.userInfo());
+        let id = localStorage.getItem('id-token')!
+        let Urlg = environment.UrlBase + `user/usuarios/${id}`;
+   
+        const res:any = await firstValueFrom(this.http.getH(Urlg));
         localStorage.setItem('nome',res.data.nome);
         this.dataS.setUser(res.data.nome);
         this.router.navigate(['vista']);

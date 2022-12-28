@@ -5,42 +5,70 @@
     <div>
         <p class="text-pag">dados-pessoais </p>
     </div>
-    
+   
+    <div style="margin-left: auto;">
+        <button (click)="Editar_dados_pessoais()">{{edit_dados}}</button>
+    </div>
+
 </div>
-<div style="margin-top: 30px;margin-left: 55px;">
-<div >
-    <div >
+<form [formGroup]="form"  style="margin-top: 30px;margin-left: 55px;">
+    <div>
         <div>
-            <p class="text1">Nome</p>
-            <p>{{dados_pessoais.nome}}</p>
+            <div>
+                
+                <div>
+                    <label class="text1" for="nome">Nome</label>
+                </div>
+                <div>
+                    <input type="text" id="nome" style="width: 350px; border: transparent;" formControlName="nome">
+                </div>
+
+            </div>
+         
         </div>
-        <!-- <div style="margin-left: 140px;">
-            <p class="text1">Sobrenome</p>
-            <p>Petti</p>
-        </div> -->
-    </div>
-    <div style="margin-top: 20px;">
-        <p class="text1">E-mail</p>
-        <p>{{dados_pessoais.email}}</p>
-    </div>
-    <div style="margin-top: 20px;">
-        <p class="text1">Telefone</p>
-        <div style="display: flex;">
-            <p>{{dados_pessoais.telefone}}</p>
-            <p class="text1" style="margin-left: 10px;margin-top: 6px;">(Para alterar seu telefone, vá até a aba "Validar Conta" no menu.)</p>
+        <div style="margin-top: 15px;">
+
+            <div>
+                <label class="text1" for="email">E-mail</label>
+            </div>
+            <div>
+                <input type="text" id="email" style="width: 350px;border: transparent; " formControlName="email">
+            </div>
+         
         </div>
-       
+        <div style="margin-top: 15px;">
+            <div>
+                <label class="text1" for="Telefone">Telefone</label>
+            </div>
+            <div>
+                <input type="text" id="Telefone" style="border: transparent;width: 120px;"   formControlName="telefone">
+                <b class="text1"  style="margin-left: 10px;margin-top: 6px;">(Para alterar seu telefone, vá até a aba
+                    "Validar Conta" no menu.)</b>
+            </div>
+            <!-- <p class="text1">Telefone</p>
+            <div style="display: flex;">
+                <p>{{dados_pessoais.telefone}}</p>
+                <p class="text1" style="margin-left: 10px;margin-top: 6px;">(Para alterar seu telefone, vá até a aba
+                    "Validar Conta" no menu.)</p>
+            </div> -->
+
+        </div>
+        <div style="margin-top: 15px;">
+            <div>
+                <label class="text1" for="cpf">CPF</label>
+            </div>
+            <div>
+                <input type="text" id="cpf" style="border: transparent;"  formControlName="cpf" >
+            </div>
+            <!-- <p class="text1">CPF</p>
+            <p>{{dados_pessoais.cpf}}</p> -->
+        </div>
+
+
+
     </div>
-    <div style="margin-top: 20px;">
-        <p class="text1">CPF</p>
-        <p>{{dados_pessoais.cpf}}</p>
-    </div>
-    
 
-
-</div>
-
-</div>
+</form>
 <hr>
 <div style="display: flex;">
     <div>
@@ -49,76 +77,129 @@
     <div>
         <p class="text-pag">ENDEREÇO</p>
     </div>
-    
+    <div style="margin-left: auto;">
+        <button (click)="Editar_endereco()">{{edit_endereco}}</button>
+    </div>
+
 </div>
 <div style="margin-top: 30px;margin-left: 55px;">
-    
+
 </div>
-<div style="margin-top: 30px;margin-left: 55px;">
+<form [formGroup]="form_end" style="margin-top: 30px;margin-left: 55px;">
     <div style="margin-top: 30px;">
-        <p class="text1">CEP</p>
-        <p>{{endereco.cep}}</p>
-    </div>
-    <div style="margin-top: 30px;">
-        <p class="text1">Endereço</p>
-        <p>{{endereco.endereco}}</p>
-    </div>
-    <div style="display: flex;">
         <div>
-            <p class="text1">Número</p>
-            <p>{{endereco.numero}}</p>
+            <label class="text1" for="cpf">CEP</label>
+        </div>
+        <div>
+            <input type="text" id="cpf" style="border: transparent;" formControlName="cep"  >
+        </div>
+        <!-- <p class="text1">CEP</p>
+        <p>{{endereco.cep}}</p> -->
+    </div>
+    <div style="margin-top: 15px;">
+        <div>
+            <label class="text1" for="cpf">Endereço</label>
+        </div>
+        <div>
+            <input type="text" id="cpf" style="border: transparent;"  formControlName="endereco"  >
+        </div>
+        <!-- <p class="text1">Endereço</p>
+        <p>{{endereco.endereco}}</p> -->
+    </div>
+    <div style="display: flex; margin-top: 15px;">
+        <div>
+            <div>
+                <label class="text1" for="cpf">Número</label>
+            </div>
+            <div>
+                <input type="text" id="cpf" style="border: transparent;" formControlName="numero" >
+            </div>
+            <!-- <p class="text1">Número</p>
+            <p>{{endereco.numero}}</p> -->
         </div>
         <div style="margin-left: 140px;">
-            <p class="text1">Complemento</p>
-            <p>{{endereco.complemento}}</p>
+            <div>
+                <label class="text1" for="cpf">Complemento</label>
+            </div>
+            <div>
+                <input type="text" id="cpf" style="border: transparent;" formControlName="complemento"  >
+            </div>
+            <!-- <p class="text1">Complemento</p>
+            <p>{{endereco.complemento}}</p> -->
         </div>
     </div>
-    <div style="margin-top: 30px;">
-        <p class="text1">Bairro</p>
-        <p>{{endereco.bairro}}</p>
-    </div>
-    <div style="display: flex;">
+    <div style="margin-top: 15px;">
         <div>
-            <p class="text1">UF</p>
-            <p>{{endereco.estado}}</p>
+            <label class="text1" for="cpf">Bairro</label>
+        </div>
+        <div>
+            <input type="text" id="cpf" style="border: transparent;" formControlName="bairro"  >
+        </div>
+        <!-- <p class="text1">Bairro</p>
+        <p>{{endereco.bairro}}</p> -->
+    </div>
+    <div style="display: flex; margin-top: 15px;">
+        <div>
+            <div>
+                <label class="text1" for="cpf">UF</label>
+            </div>
+            <div>
+                <input type="text" id="cpf" style="border: transparent;" formControlName="estado"  >
+            </div>
+            <!-- <p class="text1">UF</p>
+            <p>{{endereco.estado}}</p> -->
         </div>
         <div style="margin-left: 140px;">
-            <p class="text1">Municipio</p>
-            <p>{{endereco.cidade}}</p>
+            <div>
+                <label class="text1" for="cpf">Municipio</label>
+            </div>
+            <div>
+                <input type="text" id="cpf" style="border: transparent;" formControlName="cidade"  >
+            </div>
+            <!-- <p class="text1">Municipio</p>
+            <p>{{endereco.cidade}}</p> -->
         </div>
     </div>
-    <div style="margin-top: 30px;">
-        <p class="text1">Renda mensal</p>
-        <p>R$ {{endereco.renda}}</p>
+    <div style="margin-top: 15px;">
+        <div>
+            <label class="text1" for="cpf">Renda mensal</label>
+        </div>
+        <div>
+            <input type="text" id="cpf" style="border: transparent;" formControlName="renda" >
+        </div>
+        <!-- <p class="text1">Renda mensal</p>
+        <p>R$ {{endereco.renda}}</p> -->
     </div>
 
     <p class="text1">É PEP?</p>
     <div class="form-check">
-      <input type="radio" name="radios" class="form-check-input" id="exampleRadio1">
-      <label class="form-check-label" for="exampleRadio1">Declaro que NÃO sou uma pessoa políticamente exposta (PEP). </label>
+        <input type="radio" name="radios" class="form-check-input" id="exampleRadio1">
+        <label class="form-check-label" for="exampleRadio1">Declaro que NÃO sou uma pessoa políticamente exposta (PEP).
+        </label>
     </div>
     <div class="mb-3 form-check">
-      <input type="radio" name="radios" class="form-check-input" id="exampleRadio2">
-      <label class="form-check-label" for="exampleRadio2">Sou PEP. (Será necessário identificar o enquadramento após a solicitação)</label>
+        <input type="radio" name="radios" class="form-check-input" id="exampleRadio2">
+        <label class="form-check-label" for="exampleRadio2">Sou PEP. (Será necessário identificar o enquadramento após a
+            solicitação)</label>
     </div>
     <p class="text1">Termos de uso e a política de privacidade</p>
     <div style="display: flex;">
-        <p >Termos de uso</p>
+        <p>Termos de uso</p>
         <div style="margin-left: 56px;">
-            <img src="assets/icon-minha-conta.png" class="img-pag">
+            <img src="assets/Layer 2.png" style="background: #E6F3F3;" class="img-pag">
         </div>
-      
+
     </div>
     <div style="display: flex;">
-        <p >Política de privacidade</p>
+        <p>Política de privacidade</p>
         <div>
-            <img src="assets/icon-minha-conta.png" class="img-pag">
+            <img src="assets/Layer 2.png" style="background: #E6F3F3;" class="img-pag">
         </div>
-       
+
     </div>
 
-</div>
-<hr>
+</form>
+<!-- <hr>
 <div style="display: flex;">
     <div>
         <img src="assets/icon-minha-conta.png" class="img-pag">
@@ -150,43 +231,42 @@
             <p>-</p>
         </div>
     </div>
-    <div >
+    <div>
         <p class="text1">Nome completo da mãe</p>
         <p>-</p>
     </div>
-    <div >
+    <div>
         <p class="text1">Estado civil</p>
         <p>-</p>
     </div>
-    <form style="width: 270px;" >
+    <form style="width: 270px;">
         <label for="nome" class="form-label"> Nome do solicitante *</label>
-        <input type="text" class="form-control" id="nome" >
+        <input type="text" class="form-control" id="nome">
         <div style="height: 30px"></div>
-        <label  for="Email" class="form-label"> Email do solicitante *</label>
-        <input type="email" class="form-control" id="Email" >
+        <label for="Email" class="form-label"> Email do solicitante *</label>
+        <input type="email" class="form-control" id="Email">
     </form>
     <div style="height: 20px"></div>
     <p class="text1">Você trabalha atualmente?</p>
     <div style="display: flex;">
         <div>
-          <input  type="checkbox" style="width: 24px;height: 24px;border: 1px solid var(--unnamed-color-9cb2b5);background: #F3FAFA 0% 0% no-repeat padding-box;
+            <input type="checkbox" style="width: 24px;height: 24px;border: 1px solid var(--unnamed-color-9cb2b5);background: #F3FAFA 0% 0% no-repeat padding-box;
 border: 1px solid #9CB2B5;
 border-radius: 4px;
-opacity: 1;"  >
-        <label for="sim" style="margin-left: 20px;">
-         Sim
-        </label>
-    </div>
-    <div style="margin-left: 70px;">
-        <input  type="checkbox" style="width: 24px;height: 24px;border: 1px solid var(--unnamed-color-9cb2b5);background: #F3FAFA 0% 0% no-repeat padding-box;
+opacity: 1;">
+            <label for="sim" style="margin-left: 20px;">
+                Sim
+            </label>
+        </div>
+        <div style="margin-left: 70px;">
+            <input type="checkbox" style="width: 24px;height: 24px;border: 1px solid var(--unnamed-color-9cb2b5);background: #F3FAFA 0% 0% no-repeat padding-box;
 border: 1px solid #9CB2B5;
 border-radius: 4px;
-opacity: 1;"  >
-        <label style="margin-left: 20px;">
-            Não
-        </label>
-      
-    
-   
-</div>
+opacity: 1;">
+            <label style="margin-left: 20px;">
+                Não
+            </label>
 
+
+
+        </div> -->
