@@ -32,7 +32,7 @@ text_error = '';
     const Url = environment.UrlBase + "create";
     
     var data = this.form.value;
-    this.Http.post(Url,data).subscribe(() => this.form.reset());
+    this.Http.post(Url,data).subscribe(res => {console.log(res),this.form.reset()});
     }
   }
   cambio(){
@@ -71,6 +71,11 @@ text_error = '';
     if(controls["telefone"].invalid)
     {
       this.text_error = "no ha escrito el telefono";
+      return false;
+    }
+    if(controls["senha"].invalid || controls['rsenha'].invalid)
+    {
+      this.text_error = "senha  y confirmacion de senha requeridos";
       return false;
     }
 
