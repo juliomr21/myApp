@@ -24,8 +24,8 @@ export class LoginComponent implements OnInit {
     private dataS: DataStoreService,
     private router: Router) {
     this.formPass = this.fb.group({
-      cpf: ['06335968762',[Validators.required,Validators.maxLength(11),Validators.minLength(11)]],
-      senha: ['moreno123',[Validators.required]]
+      cpf: ['96766110007',[Validators.required,Validators.maxLength(11),Validators.minLength(11)]],
+      senha: ['usuario',[Validators.required]]
     });
 
   }

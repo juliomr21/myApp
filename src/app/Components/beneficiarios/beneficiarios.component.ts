@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { environment } from 'src/environments/environment';
 import { DataStoreService } from '../../data-store.service';
 import { HttpServiceService } from '../../Services/http-service.service';
 
@@ -17,8 +18,8 @@ export class BeneficiariosComponent implements OnInit {
 
  ngOnInit(): void {
    
-  
-   this.http.getBeneficiario().subscribe(res => {this.datosBeneficiario = res; this.listaBeneficiario = this.datosBeneficiario.data});
+  let Url = environment.UrlBase + 'user/beneficiario'
+   this.http.getH(Url).subscribe(res => {this.datosBeneficiario = res; this.listaBeneficiario = this.datosBeneficiario.data});
    
  }
  mover(){

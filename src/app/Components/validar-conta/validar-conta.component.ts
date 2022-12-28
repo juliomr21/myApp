@@ -9,8 +9,12 @@ import { environment } from 'src/environments/environment';
 export class ValidarContaComponent implements OnInit {
  alterar = true;
  numero = '';
- numero_nuevo = 0;
- sms = 0
+ numero_nuevo = '';
+ sms = ''
+ text_error = '';
+ acceso = false;
+ telf_val = false;
+ solicitud_aprobada = false;
   constructor(private http: HttpServiceService) { }
  
   ngOnInit(): void {
@@ -20,32 +24,58 @@ export class ValidarContaComponent implements OnInit {
     this.http.getH(Url).subscribe(res=>{
       let temp:any = res;
       this.numero = temp.data.telefone;
-      console.log(temp.data.telefone)});
+    });
    
-    // this.http.userInfo().subscribe(res=>{
-    //   let temp:any = res;
-    //   this.numero = temp.data.telefone;
-    //   console.log(temp.data.telefone)});
+  
   }
  alterar_num(){
   this.alterar = false;
  }
  solicitar_token(){
   const data = {telefone: this.numero_nuevo};
-  console.log(this.numero_nuevo); 
+  // console.log(this.numero_nuevo); 
   let Url = environment.UrlBase + `user/validar-conta`
-  this.http.postH(Url,data).subscribe(res =>console.log(res))
+  this.http.postH(Url,data).subscribe(res =>{
+    const nueva_solicitud:any = res;
+    if(nueva_solicitud.errors)
+    {
+      this.text_error = "Formato incorreto do telefone"
+      this.acceso = true;
+    }
+    else
+    { 
+      this.acceso = false;
+      this.solicitud_aprobada = true;
+      
+    }
+   
+    })
   // this.http.solicitar_token(data).subscribe(
   //   res => console.log(res)
   // );
  }
  salvar(){
  const data = {token: this.sms};
- console.log(data);
+//  console.log(data);
  let Url = environment.UrlBase + `user/validar-token`
- this.http.postH(Url,data).subscribe(res =>{console.log(res);
+ this.http.postH(Url,data).subscribe(res =>{
+  // console.log(res);
   const nuevo_token:any = res;
-  localStorage.setItem('access-token',nuevo_token.token);
+  // console.log(nuevo_token);
+  if(nuevo_token.status != 200)
+   {
+     this.text_error = "Token não válido ou expirado!"
+     this.acceso = true;
+   }
+   else
+   {
+    this.telf_val = true;
+    localStorage.setItem('access-token',nuevo_token.token);
+    this.acceso = false;
+    this.sms='';
+    this.numero_nuevo ='';
+   }
+ 
 } );
 // //  this.http.validar_token(data).subscribe(res =>{console.log(res);
 // //   const nuevo_token:any = res;

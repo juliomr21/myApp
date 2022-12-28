@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpServiceService } from '../../Services/http-service.service';
 import { FormGroup, FormBuilder } from '@angular/forms';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-add-beneficiario',
@@ -39,13 +40,14 @@ form: FormGroup;
       cod_banco: ['0'],
       agencia: [''],
       conta: [''],
-      digito: 2,
+      digito: [''],
       tipo_conta: ['0']
     })
   }
 
   ngOnInit(): void {
-    this.http.get_banco().subscribe(res=> { 
+    let Url = environment.UrlBase + 'bancos'
+    this.http.getH(Url).subscribe(res=> { 
       let temp:any = res;  this.bancos = temp.data;
      });
   }
@@ -69,13 +71,13 @@ form: FormGroup;
     }
     
   }
-  add_beneficiario(){
-    this.http.add_beneficiario(this.form.value).subscribe();
-  }
+  // add_beneficiario(){
+  //   this.http.add_beneficiario(this.form.value).subscribe();
+  // }
   pre_val(){
-    var aux = this.form.value.agencia;
-     const digito = aux.slice(0,1);
-     const agencia = aux.slice(1,aux.length)
+    // var aux = this.form.value.agencia;
+    //  const digito = aux.slice(0,1);
+    //  const agencia = aux.slice(1,aux.length)
   
 
   var  benef = {
@@ -85,11 +87,12 @@ form: FormGroup;
       nome: this.form.value.nome,
       tipo_deposito: this.operacion,
       cod_banco: this.form.value.cod_banco,
-      agencia: agencia,
+      agencia:this.form.value.agencia,
       conta: this.form.value.conta,
-      digito: digito,
+      digito: this.form.value.digito,
       tipo_conta: this.form.value.tipo_conta
     }
-    this.http.add_beneficiario(benef).subscribe(()=>this.form.reset);
+    let Url = environment.UrlBase + 'user/beneficiario'
+    this.http.postH(Url,benef).subscribe(()=>this.form.reset());
   }
 }

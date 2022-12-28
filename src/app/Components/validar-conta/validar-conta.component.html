@@ -40,18 +40,39 @@
         <div style="width: 305px; margin-left: auto;margin-right: auto;">
             <div style=" margin-top: 25px;">
                 <label for="num-cel" class="my-label"> Número do celular:</label>
-                <input type="text" class="campo" id="num-cel"[(ngModel)]="numero_nuevo" >
-            </div>
-            <div style=" margin-top: 25px;">
-                <label for="num-cod" class="my-label"> Insira o código para validar:</label>
-                <input type="text" class="campo" id="num-cod" [(ngModel)]="sms">
-            </div>
-            <div>
-                <button class="boton-alterar" (click)="salvar()">Salvar</button>
+                <input type="text" class="campo" mask="000000000000000" id="num-cel"[(ngModel)]="numero_nuevo" >
             </div>
             <div style=" width: 233px;; margin-left: auto;margin-right: auto; margin-top: 25px;">
                 <button class="boton-enviar-token"(click)="solicitar_token()">Enviar código Token</button>
             </div>
+            <div *ngIf="solicitud_aprobada" style="display: flex;margin-top: 35px; width: max-content;margin-left: auto;margin-right: auto;">
+                <div>
+                    <img src="assets/sms.png" class="img-pag">
+                </div>
+                <div>
+                    <p style="margin-left: 10px;">Código enviado com sucesso. Aguarde até recebê-lo.</p>
+                </div>
+            </div> 
+            <div style=" margin-top: 25px;">
+                <label for="num-cod" class="my-label"> Insira o código para validar:</label>
+                <input type="text" class="campo" mask="000000" id="num-cod" [(ngModel)]="sms">
+            </div>
+            <div *ngIf="acceso" style="background: rgb(243, 189, 171); color: rgb(134, 16, 16); margin-top: 10px;">
+                {{text_error}}
+             </div>
+             <div *ngIf="telf_val" style="display: flex; width: 200px;margin-left: auto;margin-right: auto; margin-top: 20px;">
+                <div>
+                    <img src="assets/ok.png" >
+                    
+                </div>
+                <div>
+                    <p class="text3">TELEFONE VALIDADO</p>
+                </div>
+            </div>
+            <div>
+                <button class="boton-alterar" (click)="salvar()">Salvar</button>
+            </div>
+           
         </div>
 
     </div>

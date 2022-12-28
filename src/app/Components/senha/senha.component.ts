@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpServiceService } from '../../Services/http-service.service';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-senha',
@@ -29,8 +30,8 @@ export class SenhaComponent implements OnInit {
       return;
     }
     if(this.form.value.nova_senha == this.form.value.confirm)
-    {
-      this.http.cambiar_senha(this.form.value).subscribe(
+    { let Url = environment.UrlBase + 'user/redefinir-senha';
+      this.http.postH(Url,this.form.value).subscribe(
         res=>{ 
           let temp:any = res;
           if(temp.errors)

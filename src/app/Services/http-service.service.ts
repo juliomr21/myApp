@@ -20,15 +20,13 @@ export class HttpServiceService {
     this.userData$ = new Subject<any>();
   }
   setUserData(userTemp: any) {
-    console.log(userTemp)
+    //console.log(userTemp)
     this.userData = userTemp;
     this.userData$.next(this.userData);
   }
   setUser(usuario: string) {
     this.user = usuario;
-    //this.personas.push(pPersona);
     this.user$.next(this.user);
-    // this.personas$.next(this.personas);
   }
   getUserData$(): Observable<any> {
     return this.userData$.asObservable();
@@ -42,224 +40,49 @@ export class HttpServiceService {
   getUser() {
     return this.user;
   }
-  getH(Url:string){
+  getH(Url: string) {
     const token: string = localStorage.getItem('access-token')!;
     let headers = new HttpHeaders({
-    // "Content-Type": "application/json",
-    "Authorization": token
-  });
-  return this.http.get(Url,{headers});
+      // "Content-Type": "application/json",
+      "Authorization": token
+    });
+    return this.http.get(Url, { headers });
   }
-  postH(Url:string,data:any){
+  postH(Url: string, data: any) {
     const token: string = localStorage.getItem('access-token')!;
     let headers = new HttpHeaders({
-    // "Content-Type": "application/json",
-    "Authorization": token
-  });
-  return this.http.post(Url,data,{headers});
+      // "Content-Type": "application/json",
+      "Authorization": token
+    });
+    return this.http.post(Url, data, { headers });
   }
- getBeneficiario(){
-  const token: string = localStorage.getItem('access-token')!;
-  
-  let headers = new HttpHeaders({
-    "Content-Type": "application/json",
-    "Authorization": token
-  });
-
-   
-  return this.http.get('http://localhost/api_livre_20/public/user/beneficiario',{headers});
- }
- get_banco(){
-  const token: string = localStorage.getItem('access-token')!;
-  
-  let headers = new HttpHeaders({
-    "Content-Type": "application/json",
-    "Authorization": token
-  });
-
-   
-  return this.http.get('http://localhost/api_livre_20/public/bancos',{headers});
- }
- add_beneficiario(beneficiario:any){
-  const token: string = localStorage.getItem('access-token')!;
-  let headers = new HttpHeaders({
-    "Content-Type": "application/json",
-    "Authorization": token
-  });
-  return this.http.post('http://localhost/api_livre_20/public/user/beneficiario',beneficiario,{headers})
- }
   post(Url: string, data: any) {
     return this.http.post(Url, data);
   }
-  uploadImage(data:any):Observable<any>{
-    const Url = environment.UrlBase+"user/upload-image/0";
-    let token = localStorage.getItem('access-token')!;
-   // let id = localStorage.getItem('id-token')!
-   // let Url = environment.UrlBase + `user/usuarios/${id}`;
-    let headers = new HttpHeaders({
-      "Content-Type": "application/json",
-      "Authorization": token
-    });
-    // var MiFormData = new FormData();
-    // MiFormData.append('image', data);
-    return this.http.post(Url,data,{headers});
 
-  }
-  subirImagen(arquivo:FormData):Observable<any>{
-    let token = localStorage.getItem('access-token')!;
-    
-     let headers = new HttpHeaders({
-     
-     // "Content-Type": "application/x-www-form-urlencoded",
-       "Authorization": token
-     });
-    
-    let Url = environment.UrlBase + `user/upload-image/0`;
-    return this.http.post(Url,arquivo,{headers});
-  }
-  subirImagen1(arquivo:FormData):Observable<any>{
-    let token = localStorage.getItem('access-token')!;
-    
-     let headers = new HttpHeaders({
-     
-      "Content-Type": "application/json",
-       "Authorization": token
-     });
-    
-    let Url = environment.UrlBase + `user/upload-image/0`;
-    return this.http.post(Url,arquivo,{headers});
-  }
-
-  upload(arquivo:File){
-    var form = new FormData(); 
-    form.append('arquivo',arquivo);
-    console.log('archivo enviado al servidor con   "Content-Type": "application/x-www-form-urlencoded"',form);
-    let token = localStorage.getItem('access-token')!;
-    
-    let headers = new HttpHeaders({
-    
-    // "Content-Type": "application/x-www-form-urlencoded",
-      "Authorization": token
-    });
-   
-   let Url = environment.UrlBase + `user/upload-image/0`;
-   return this.http.post(Url,form,{headers});
-  }
-
-  userInfo() {
-    let token = localStorage.getItem('access-token')!;
-    let id = localStorage.getItem('id-token')!
-    let Url = environment.UrlBase + `user/usuarios/${id}`;
-    let headers = new HttpHeaders({
-      "Content-Type": "application/json",
-      "Authorization": token
-    });
-    return this.http.get(Url, { headers });
-
-  }
-  dados_pessoais() {
-    let token = localStorage.getItem('access-token')!;
-    let id = localStorage.getItem('id-token')!
-   // let Url = environment.UrlBase + `user/dados-usuario/`;
-   let Url = `http://localhost/api_livre_20/public/user/dados-usuario`
-   let headers = new HttpHeaders({
-    "Content-Type": "application/json",
-    "Authorization": token
-  });
-    return this.http.get(Url, { headers });
-
-  }
   get(Url: string) {
     return this.http.get(Url);
   }
-  async Validdar_token(): Promise<boolean> {
-    const Url = environment.UrlBase + "verify";
-    const token = localStorage.getItem('access-token')!.toString();
-    if (!!token) {
-      let valorControl: boolean = false;
-      try {
-        await firstValueFrom(this.http.get(Url))
-        valorControl = true;
-      } catch (reason) {
-        valorControl = false;
-      }
-      return valorControl;
-    } else {
-      this.router.navigate(['login']);
-      return false;
-    }
 
+  actualizar_endereco(data: any, id: any) {
+    const token: string = localStorage.getItem('access-token')!;
+    let headers = new HttpHeaders({
+      "Content-Type": "application/json",
+      "Authorization": token
+    });
+    let Url = environment.UrlBase + `user/dados-usuario/${id}`
+    return this.http.put(Url, data, { headers });
   }
-
-  getdados(){
+  actualizar_dados_pesoais(data: any, id: any) {
     const token: string = localStorage.getItem('access-token')!;
-    
     let headers = new HttpHeaders({
       "Content-Type": "application/json",
       "Authorization": token
     });
-  
-    
-    return this.http.get('http://localhost/api_livre_20/public/user/dados-usuario',{headers});
-   }
-   cambiar_senha(data:any){
-    const token: string = localStorage.getItem('access-token')!;
-    
-    let headers = new HttpHeaders({
-      "Content-Type": "application/json",
-      "Authorization": token
-    });
-  
-    
-    return this.http.post('http://localhost/api_livre_20/public/user/redefinir-senha',data,{headers});
+    let Url = environment.UrlBase + `user/usuarios/${id}`
 
-   }
-   solicitar_token(data:any){
-
-    const token: string = localStorage.getItem('access-token')!;
-    
-    let headers = new HttpHeaders({
-      // "Content-Type": "application/json",
-        "Authorization": token
-    });
-  
-    
-    return this.http.post('http://localhost/api_livre_20/public/user/validar-conta',data,{headers});
-
-   }
-   validar_token(data:any){
-    const token: string = localStorage.getItem('access-token')!;
-    
-    let headers = new HttpHeaders({
-      // "Content-Type": "application/json",
-        "Authorization": token
-    });
-  
-    
-    return this.http.post('http://localhost/api_livre_20/public/user/validar-token',data,{headers});
-    
-   }
-   actualizar_endereco(data:any,id:any){
-    const token: string = localStorage.getItem('access-token')!;
-    let headers = new HttpHeaders({
-      "Content-Type": "application/json",
-        "Authorization": token
-    });
-  
-    return this.http.put(`http://localhost/api_livre_20/public/user/dados-usuario/${id}`,data,{headers});
-   }
-   actualizar_dados_pesoais(data:any,id:any){
-    const token: string = localStorage.getItem('access-token')!;
-    let headers = new HttpHeaders({
-      //  "Content-Type": "application/x-www-form-urlencoded",
-      "Content-Type": "application/json",
-        "Authorization": token
-    });
-       
-    //  data = {"nome": "USUARIO Dss"}
-    //  console.log(data1);
-    return this.http.put(`http://localhost/api_livre_20/public/user/usuarios/${id}`,data,{headers});
-   }
+    return this.http.put(Url, data, { headers });
+  }
 
 }
 

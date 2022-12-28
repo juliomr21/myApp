@@ -43,15 +43,17 @@ height: 1220px;" class="container">
     <div style="display: flex;">
         <div>
             <label class="info-input"> Conta</label>
-    <input type="text" class="form-control" id="conta" formControlName="conta" style="width: 165px;"  >
+    <input type="text" class="form-control" id="conta" formControlName="conta" mask="0*" style="width: 165px;"  >
         </div>
         <div style="margin-left: 20px;">
-            <label class=" info-input"> (Digito)Agência</label>
-            <input type="text" class="form-control"  id="agencia" placeholder="(0)0000" mask="(0)0*" formControlName="agencia" style="width: 165px; " >
+            <label class=" info-input"> Dígito</label>
+            <input type="text" class="form-control"  id="digito" placeholder="" mask="0" formControlName="digito" style="width: 165px; " >
             
         </div>
     </div>
-    
+    <label  class="info-input"> Agência</label>
+    <input type="text" class="form-control" id="agencia" formControlName="agencia" mask="0*" placeholder="" >
+
    <div>
     <label class="info-input "> Banco</label>
    </div>
