@@ -60,10 +60,10 @@ export class DadosPessoaisComponent implements OnInit {
     else {
       this.form.disable();
       this.edit_dados = 'Editar'
-      this.http.actualizar_dados_pesoais(this.form.value, this.id).subscribe(res =>{
+      this.http.actualizar_dados_pesoais(this.form.value, this.id).subscribe(() =>{
       localStorage.setItem('nome',this.form.value.nome );
       this.dataS.setUser(this.form.value.nome);
-      console.log(res)});
+      });
     } 
      
     this.estado = !this.estado;
@@ -100,7 +100,7 @@ export class DadosPessoaisComponent implements OnInit {
     let Url = environment.UrlBase + `user/usuarios/${id}`;
     this.http.getH(Url).subscribe(
       res => {
-        console.log(res);
+       
         let temp: any = res;
         this.dados_pessoais = temp.data;
         this.form.setValue({

@@ -22,8 +22,9 @@
     <input type="password" class="form-control" id="nova" formControlName="nova_senha">
     <label for="confirme" class="text-field">Confirme sua nova senha</label>
     <input type="password" class="form-control" id="confirme" formControlName="confirm">
-    <button class="boton-alterar" (click)="cambiar_senha()">Alterar Senha </button>
     <div *ngIf="acceso" style="background: rgb(243, 189, 171); color: rgb(134, 16, 16); margin-top: 10px;">
         {{text_error}}
      </div>
+    <button class="boton-alterar" (click)="cambiar_senha()">Alterar Senha </button>
+    
 </form>

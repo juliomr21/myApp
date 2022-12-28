@@ -22,21 +22,25 @@ export class SenhaComponent implements OnInit {
   ngOnInit(): void {
   }
   cambiar_senha(){
+    if(this.form.controls['nova_senha'].invalid || this.form.controls['confirm'].invalid)
+    {
+      this.acceso = true;
+      this.text_error = "AAA nova senha y confirmacion requeridas con al menos 8 caracteres";
+      return;
+    }
     if(this.form.value.nova_senha == this.form.value.confirm)
     {
       this.http.cambiar_senha(this.form.value).subscribe(
         res=>{ 
-        
-          try
+          let temp:any = res;
+          if(temp.errors)
           {
-            this.form.reset();
-             console.log(res)  ;
-          }
-          catch{
             this.acceso = true;
-            this.text_error = "AAA senha actual incorrecto "
+            this.text_error = "Senha atual incorreta";
           }
-          
+          else
+          this.form.reset();
+                        
          });
 
     }
