@@ -17,9 +17,9 @@ export class DadosPessoaisComponent implements OnInit {
   post_activo = false;
   endereco: any = [];
   estado = true;
-  edit_dados = 'Editar'
+  edit_dados = 'EDITAR'
   estado_endereco = true;
-  edit_endereco = 'Editar'
+  edit_endereco = 'EDITAR'
   id = 0;
   id_dados = 0;
   form: FormGroup;
@@ -59,7 +59,7 @@ export class DadosPessoaisComponent implements OnInit {
     }
     else {
       this.form.disable();
-      this.edit_dados = 'Editar'
+      this.edit_dados = 'EDITAR'
       this.http.actualizar_dados_pesoais(this.form.value, this.id).subscribe(() =>{
       localStorage.setItem('nome',this.form.value.nome );
       this.dataS.setUser(this.form.value.nome);
@@ -71,11 +71,11 @@ export class DadosPessoaisComponent implements OnInit {
   }
   Editar_endereco() {
     if (this.estado_endereco) {
-      this.edit_endereco = 'Salvar'
+      this.edit_endereco = 'SALVAR'
       this.form_end.enable();
     }
     else {
-      this.edit_endereco = 'Editar';
+      this.edit_endereco = 'EDITAR';
       this.form_end.disable();
       if(this.post_activo)
       {
@@ -140,5 +140,27 @@ export class DadosPessoaisComponent implements OnInit {
       this.id_dados = this.endereco.id_dados_usuario
     }  
    
+  }
+  carga_cep_internet(){
+    let cep = this.form_end.value.cep;
+    let renda = this.form_end.value.renda;
+    let Url = `https://viacep.com.br/ws/${cep}/json/`;
+    this.http.get(Url).subscribe(res =>
+      {
+        let temp_endereco:any = res;
+        console.log(temp_endereco)
+        this.form_end.setValue({
+          cep: cep,
+          endereco: temp_endereco.logradouro,
+          numero: temp_endereco.ddd,
+          complemento: temp_endereco.complemento,
+          bairro: temp_endereco.bairro,
+          estado: temp_endereco.uf,
+          cidade: temp_endereco.localidade,
+          renda: renda
+  
+        })
+      
+      }); 
   }
 }
