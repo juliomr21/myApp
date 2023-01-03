@@ -20,7 +20,7 @@
                     <label class="text1" for="nome">Nome</label>
                 </div>
                 <div>
-                    <input type="text" id="nome" style="width: 350px; border: transparent;" formControlName="nome">
+                    <input type="text" id="nome" onkeydown="return /[a-z, ]/i.test(event.key)" style="width: 350px; border: transparent;" formControlName="nome" >
                 </div>
 
             </div>

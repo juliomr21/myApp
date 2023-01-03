@@ -83,6 +83,9 @@ export class HttpServiceService {
 
     return this.http.put(Url, data, { headers });
   }
+  eliminar_beneficiario(){
+    
+  }
 
 }
 

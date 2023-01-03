@@ -31,48 +31,73 @@ height: 1220px;" class="container">
         color: #003940; margin-left: 38px;">TED</P>  -->
         </button>
     <label  class="info-input "> Nome Completo do Beneficiário</label>
-    <input type="text" class="form-control" id="nome" formControlName="nome" >
+    <input type="text" class="form-control" id="nome" formControlName="nome" onkeydown="return /[a-z, ]/i.test(event.key)" >
     <label  class="info-input"> CPF</label>
     <input type="text" class="form-control" id="cpf" formControlName="cpf" mask="000.000.000-00" placeholder="000.000.000-00" >
-    <label class="info-input "> Tipo de Conta</label>
-    <select type="text" class="combox" id="tconta" formControlName="tipo_conta" >
-        <option disabled selected [value]="0" >- SELECCIONE CONTA -</option>
-        <option [value]="1">CONTA CORRENTE</option>
-        <option [value]="2">CONTA POUPANÇA</option>
-    </select>
-    <div style="display: flex;">
-        <div>
-            <label class="info-input"> Conta</label>
-    <input type="text" class="form-control" id="conta" formControlName="conta" mask="0*" style="width: 165px;"  >
+    
+    <div *ngIf="operacion == 1">
+        <label class="info-input "> Tipo de Conta</label>
+        <select type="text" class="combox" id="tconta" formControlName="tipo_conta" >
+            <option disabled selected [value]="0" >- SELECCIONE CONTA -</option>
+            <option [value]="1">CONTA CORRENTE</option>
+            <option [value]="2">CONTA POUPANÇA</option>
+        </select>
+        <div style="display: flex;">
+            <div>
+                <label class="info-input"> Conta</label>
+        <input type="text" class="form-control" id="conta" formControlName="conta" mask="0*" style="width: 165px;"  >
+            </div>
+            <div style="margin-left: 20px;">
+                <label class=" info-input"> Dígito</label>
+                <input type="text" class="form-control"  id="digito" placeholder="" mask="0" formControlName="digito" style="width: 165px; " >
+                
+            </div>
         </div>
-        <div style="margin-left: 20px;">
-            <label class=" info-input"> Dígito</label>
-            <input type="text" class="form-control"  id="digito" placeholder="" mask="0" formControlName="digito" style="width: 165px; " >
+        <label  class="info-input"> Agência</label>
+        <input type="text" class="form-control" id="agencia" formControlName="agencia" mask="0*" placeholder="" >
+    
+       <div>
+        <label class="info-input "> Banco</label>
+       </div>
+      
+       <!-- <select></select> -->
+        <select type="text" class="combox" id="nome_banco" formControlName="cod_banco"  >
+            <option disabled selected [value]="0"  >- SELECCIONE BANCO -</option>
+            <option *ngFor="let item of bancos" [value]="item.cod_banco">{{item.nome}}</option> 
             
-        </div>
+        </select>
     </div>
-    <label  class="info-input"> Agência</label>
-    <input type="text" class="form-control" id="agencia" formControlName="agencia" mask="0*" placeholder="" >
-
-   <div>
-    <label class="info-input "> Banco</label>
-   </div>
-  
-   <!-- <select></select> -->
-    <select type="text" class="combox" id="nome_banco" formControlName="cod_banco"  >
-        <option disabled selected [value]="0"  >- SELECCIONE BANCO -</option>
-        <option *ngFor="let item of bancos" [value]="item.cod_banco">{{item.nome}}</option> 
+    <div  *ngIf="operacion == 0">
+        <label class="info-input "> Tipo de chave</label>
+        <select type="text" class="combox" id="tipo_chave" formControlName="tipo_chave"  >
+           
+            <option disabled selected [value]="-1" >-SELECCIONE O TIPO DE CHAVE-</option>
+            <option  [value]="0"  >CPF</option>
+            <option  [value]="1"  >EMAIL</option>
+            <option  [value]="2"  >TELEFONE</option>
+            <option  [value]="3"  >CHAVE ALEATORIA</option>
+       
+        </select>
+        <div>
+            <label  class="info-input"> Chave</label>
+        <input type="text" class="form-control" id="chave_pix" formControlName="chave_pix"  placeholder="" >
+        </div>
         
-    </select>
+ 
+        
+    </div>
+
     <p class="info-pag1">PARA NOTIFICAR O BENEFICIÁRIO, PREENCHA AS INFORMAÇÕES ABAIXO:</p>
     <label class="form-label"> E-mail do beneficiário (Opcional)</label>
     <input type="text" class="form-control" id="email" formControlName="email">
     <label class="form-label">Telefone do beneficiário (Opcional)</label>
-    <input type="text" class="form-control" id="telf" formControlName="telefone" >
+    <input type="text" class="form-control" id="telf" formControlName="telefone" mask="0*">
     <button class="boton-verde info-boton "(click)="pre_val()">Salvar <img src="assets/Caminho-left.png"
         style="margin-left: 180px;"> </button>
     
-    
+        <div *ngIf="acceso" style="background: rgb(243, 189, 171); color: rgb(134, 16, 16); margin-top: 10px; width: 350px;">
+            AAA {{text_error}}
+          </div>
 
 
 </form>

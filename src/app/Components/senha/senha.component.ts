@@ -11,6 +11,7 @@ import { environment } from 'src/environments/environment';
 export class SenhaComponent implements OnInit {
  acceso =false;
  text_error = '';
+ cambio_senha = false;
   form:FormGroup
   constructor(private http:HttpServiceService,private fb:FormBuilder) { 
     this.form = fb.group({
@@ -38,9 +39,14 @@ export class SenhaComponent implements OnInit {
           {
             this.acceso = true;
             this.text_error = "Senha atual incorreta";
+            this.cambio_senha = false;
           }
           else
-          this.form.reset();
+          {
+            this.cambio_senha = true;
+            this.form.reset();
+          }
+         
                         
          });
 

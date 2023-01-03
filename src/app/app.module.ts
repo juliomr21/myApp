@@ -33,6 +33,7 @@ import { RsenhaComponent } from './rsenha/rsenha.component';
 import { RsenhaSmsComponent } from './rsenha-sms/rsenha-sms.component';
 import { AlterarSenhaComponent } from './alterar-senha/alterar-senha.component';
 import { NovoPagComponent } from './novo-pag/novo-pag.component';
+import { BancoNomePipe } from './Pipe/banco-nome.pipe';
 
 const maskConfigFunction: () => Partial<IConfig> = () => {
   return {
@@ -66,7 +67,8 @@ const maskConfigFunction: () => Partial<IConfig> = () => {
     RsenhaComponent,
     RsenhaSmsComponent,
     AlterarSenhaComponent,
-    NovoPagComponent
+    NovoPagComponent,
+    BancoNomePipe
   ],
   imports: [
     BrowserModule,

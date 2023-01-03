@@ -1,6 +1,6 @@
 <div style="background:#ECF3F3 ; ">
 
-    <form [formGroup]="form" class="row ">
+    <form *ngIf="!register_ok" [formGroup]="form" class="row ">
         <div style="height: 40px;">
 
         </div>
@@ -26,8 +26,8 @@
                 </div>
                 <label class="text-campo" for="nome">Nome completo*</label>
                 <div>
-                    <input type="text" name="nome" class="form-control campo" placeholder="Julinho Nascimento" mask="S* S* S* S*"
-                        formControlName="nome">
+                    <input type="text" name="nome" class="form-control campo" placeholder="Julinho Nascimento"
+                        onkeydown="return /[a-z, ]/i.test(event.key)" formControlName="nome">
                 </div>
                 <div class="row">
                     <div class="col-md-6">
@@ -71,12 +71,13 @@
                     </div>
                 </button>
                 <div *ngIf="acceso" style="background: rgb(243, 189, 171); color: rgb(134, 16, 16); margin-top: 10px;">
-                   {{text_error}}
+                    AAA {{text_error}}
                 </div>
-                
+
+
                 <div class="mb-3 form-check" style="margin-top: 50px;">
-                    <input type="checkbox" class="form-check-input" id="check1" (change)="check1 = !check1" >
-                    <label class="form-check-label text-campo" for="check1" >Declaro que li e aceito os termos de
+                    <input type="checkbox" class="form-check-input" id="check1" (change)="check1 = !check1">
+                    <label class="form-check-label text-campo" for="check1">Declaro que li e aceito os termos de
                         uso e a política de privacidadet</label>
                 </div>
                 <div class="mb-3 form-check">
@@ -92,8 +93,32 @@
 
 
     </form>
-    <div style=" width: 720px; margin-left:auto; margin-right:auto">
+    <div *ngIf="!register_ok" style=" width: 720px; margin-left:auto; margin-right:auto">
         <p class="text-campo" style=" margin-top: 20px; ">*Campo obrigatório.</p>
     </div>
-    
+    <div *ngIf="register_ok">
+        <div style=" height: 150px">
+
+        </div>
+
+        <div class="panel2" style="margin-left: auto; margin-right: auto;">
+
+
+            <div style="width: 320px; display: flex;">
+                <img src="assets/cuenta_creada.png" style="margin-left: auto;  margin-right: auto; margin-top: 20px;">
+            </div>
+            <h4 class="text-center" style="margin-top: 30px;">AAA Cuenta creada correcta</h4>
+            <div style="width: 320px;display: flex;">
+                <div style="margin-left: auto;  margin-right: auto; ">
+                    <button class="boton-verde-corto" (click)="cuenta_creada()">Próximo</button>
+                </div>
+            </div>
+
+
+        </div>
+        <div style=" height: 150px">
+
+        </div>
+    </div>
+
 </div>

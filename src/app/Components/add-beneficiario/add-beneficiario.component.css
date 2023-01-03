@@ -24,6 +24,7 @@ height: 64px;
 background: var(--unnamed-color-3dff91) 0% 0% no-repeat padding-box;
 background: #3DFF91 0% 0% no-repeat padding-box;
 border-radius: 10px;
+border: #3DFF91;
 
 opacity: 1;
 }

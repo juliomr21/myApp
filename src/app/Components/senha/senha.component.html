@@ -25,6 +25,15 @@
     <div *ngIf="acceso" style="background: rgb(243, 189, 171); color: rgb(134, 16, 16); margin-top: 10px;">
         {{text_error}}
      </div>
+     <div *ngIf="cambio_senha" style="display: flex; width: 300px;margin-left: auto;margin-right: auto; margin-top: 20px;">
+        <div>
+            <img src="assets/ok.png" >
+            
+        </div>
+        <div>
+            <p class="text-info" style="margin-left: 10px;">AAA Contraseña cambiada correctamente</p>
+        </div>
+    </div>
     <button class="boton-alterar" (click)="cambiar_senha()">Alterar Senha </button>
     
 </form>

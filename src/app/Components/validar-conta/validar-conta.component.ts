@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpServiceService } from '../../Services/http-service.service';
 import { environment } from 'src/environments/environment';
+import { Router } from '@angular/router';
+import { DataStoreService } from '../../data-store.service';
 @Component({
   selector: 'app-validar-conta',
   templateUrl: './validar-conta.component.html',
@@ -15,7 +17,8 @@ export class ValidarContaComponent implements OnInit {
  acceso = false;
  telf_val = false;
  solicitud_aprobada = false;
-  constructor(private http: HttpServiceService) { }
+ estado_telf = 100;
+  constructor(private http: HttpServiceService, private dataS: DataStoreService) { }
  
   ngOnInit(): void {
    
@@ -24,6 +27,7 @@ export class ValidarContaComponent implements OnInit {
     this.http.getH(Url).subscribe(res=>{
       let temp:any = res;
       this.numero = temp.data.telefone;
+      this.estado_telf = temp.data.estado;
     });
    
   
@@ -74,6 +78,9 @@ export class ValidarContaComponent implements OnInit {
     this.acceso = false;
     this.sms='';
     this.numero_nuevo ='';
+   
+    this.alterar = true;
+     
    }
  
 } );

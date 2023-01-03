@@ -9,7 +9,7 @@
 <div class="row container">
     <div *ngFor="let beneficiario of listaBeneficiario" class="col-lg-4" style=" margin-top:55px">
 
-        <div class="my-card ">
+        <div class="my-card " >
           
                  <div style="margin-left: 50%;">
                     <img src="assets/Layer 2-4.png" alt="" >
@@ -17,9 +17,38 @@
                  <div class="text-center">
                     <label style="font: normal normal bold 13px Montserrat; color: #003940;">{{beneficiario.nome}}</label>
                  </div>
-                  <label >CPF: {{beneficiario.cpf|cpfPipe}}</label>
-                  <label> CHAVE PIX: {{beneficiario.chave_pix}}</label>
+                  <p style="margin-left: 20px; margin-top: 5px;" >CPF: {{beneficiario.cpf|cpfPipe}}</p>
+                  <div *ngIf="beneficiario.tipo_deposito == 1" style="margin-left: 20px;" >
+                    <!-- banco_nombre({{beneficiario.cod_banco}}) -->
+                    <!-- <p>{{bancos|bancoNome}}</p> -->
+                    <p> {{bancos|bancoNome: beneficiario.cod_banco}} ({{beneficiario.cod_banco}})</p> 
+                    <p>AG: {{beneficiario.agencia}}</p>
+                    <p>{{beneficiario.tipo_conta_str}}: {{beneficiario.conta}} - {{beneficiario.digito}}</p>
+                  </div>
+                  <div *ngIf="beneficiario.tipo_deposito == 0" class="text-center">
+                    <p> CHAVE PIX: {{beneficiario.chave_pix}}</p>
+                    <div style="height: 85px;"></div>
+                  </div>
+                  
+                  <div style="display: flex;cursor: pointer;">
+                   
+                    <div style="margin-left: auto;margin-right: auto;display: flex;margin-top: 5px;margin-bottom: auto; margin-top: auto;">
+                        <div>
+                            <img src="assets/deletar.png" alt="">
+                        </div>
+                        <div>
+                            <p style="color:#798F92; margin-left: 5px; margin-top: 2px;">Deletar</p>
+                        </div>
+                        
+                        
+                    </div>
+                   
+                   
+                    
+                  </div>
+                  <div style="height: 5px;"></div>
               </div>
+            
         
       </div>
 </div>
@@ -28,7 +57,7 @@
   <div style="display: flex; margin-top: 100px;margin-left: 40%;cursor: pointer;" (click)="mover()">
     <p class="add-b-text">Adicionar beneficiário</p>
     <div>
-        <img src="assets\Layer 2-5.png" style="margin-left: 20px;">
+        <img src="assets\add_benef.png" style="margin-left: 10px; width: 60%;">
     </div>
     
 </div>

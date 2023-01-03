@@ -18,13 +18,19 @@
             <p class="text-imp text-center">Número do celular:</p>
             <p class="" style="background: #F9FCFC ; width:fit-content; margin-left: auto;margin-right: auto;">{{numero}}
             </p>
-            <div style="display: flex; width: 100px;margin-left: auto;margin-right: auto;">
+            <div *ngIf="estado_telf != 100" style="display: flex; width: 100px;margin-left: auto;margin-right: auto;">
                 <div>
                     <img src="assets/ok.png" >
                     
                 </div>
                 <div>
                     <p class="text3">VALIDADO</p>
+                </div>
+            </div>
+            <div *ngIf="estado_telf == 100" style="display: flex; width: 100px;margin-left: auto;margin-right: auto;">
+               
+                <div>
+                    <p class="text3">no VALIDADO</p>
                 </div>
             </div>
             
@@ -40,7 +46,7 @@
         <div style="width: 305px; margin-left: auto;margin-right: auto;">
             <div style=" margin-top: 25px;">
                 <label for="num-cel" class="my-label"> Número do celular:</label>
-                <input type="text" class="campo" mask="000000000000000" id="num-cel"[(ngModel)]="numero_nuevo" >
+                <input type="text" class="campo form-control text-center " mask="000000000000000" id="num-cel"[(ngModel)]="numero_nuevo" >
             </div>
             <div style=" width: 233px;; margin-left: auto;margin-right: auto; margin-top: 25px;">
                 <button class="boton-enviar-token"(click)="solicitar_token()">Enviar código Token</button>
@@ -55,7 +61,7 @@
             </div> 
             <div style=" margin-top: 25px;">
                 <label for="num-cod" class="my-label"> Insira o código para validar:</label>
-                <input type="text" class="campo" mask="000000" id="num-cod" [(ngModel)]="sms">
+                <input type="text" class="campo form-control text-center" mask="0 0 0 0 0 0" id="num-cod" [(ngModel)]="sms">
             </div>
             <div *ngIf="acceso" style="background: rgb(243, 189, 171); color: rgb(134, 16, 16); margin-top: 10px;">
                 {{text_error}}
