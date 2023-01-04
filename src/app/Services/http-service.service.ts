@@ -83,8 +83,15 @@ export class HttpServiceService {
 
     return this.http.put(Url, data, { headers });
   }
-  eliminar_beneficiario(){
-    
+  eliminar_beneficiario(id:any){
+    let Url = environment.UrlBase + `user/beneficiario/${id}`
+    let data = { "eliminado": "1"};
+    const token: string = localStorage.getItem('access-token')!;
+    let headers = new HttpHeaders({
+      "Content-Type": "application/json",
+      "Authorization": token
+    });
+    return this.http.put(Url, data, { headers });
   }
 
 }
