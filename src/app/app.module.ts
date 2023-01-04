@@ -34,7 +34,7 @@ import { RsenhaSmsComponent } from './rsenha-sms/rsenha-sms.component';
 import { AlterarSenhaComponent } from './alterar-senha/alterar-senha.component';
 import { NovoPagComponent } from './novo-pag/novo-pag.component';
 import { BancoNomePipe } from './Pipe/banco-nome.pipe';
-
+import { CurrencyMaskModule } from "ng2-currency-mask";
 const maskConfigFunction: () => Partial<IConfig> = () => {
   return {
     validation: false,
@@ -76,7 +76,10 @@ const maskConfigFunction: () => Partial<IConfig> = () => {
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
+    CurrencyMaskModule,
     AppRoutingModule
+    
+
   ],
  // providers: [CookieService,{provide: HTTP_INTERCEPTORS,useClass:AuthInterceptorService,multi:true}, { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor , multi: true }],
   providers: [CookieService],

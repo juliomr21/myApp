@@ -22,6 +22,12 @@ export class ValidarContaComponent implements OnInit {
  
   ngOnInit(): void {
    
+   this.cargar_datos();
+   
+  
+  }
+  cargar_datos(){
+
     let id = localStorage.getItem('id-token')!
     let Url = environment.UrlBase + `user/usuarios/${id}`;
     this.http.getH(Url).subscribe(res=>{
@@ -29,8 +35,7 @@ export class ValidarContaComponent implements OnInit {
       this.numero = temp.data.telefone;
       this.estado_telf = temp.data.estado;
     });
-   
-  
+
   }
  alterar_num(){
   this.alterar = false;
@@ -80,6 +85,7 @@ export class ValidarContaComponent implements OnInit {
     this.numero_nuevo ='';
    
     this.alterar = true;
+    this.cargar_datos();
      
    }
  

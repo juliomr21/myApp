@@ -17,6 +17,8 @@ export class VistaComponent implements OnInit {
    datosBeneficiario:any;
    listaBeneficiario:any[] = [];
    temp:any;
+   max_pago = environment.MaxPago;
+   parcelas = environment.CantParcelas;
   constructor( private dataS:DataStoreService, private router: Router, private http: HttpServiceService) { }
 
   ngOnInit(): void {

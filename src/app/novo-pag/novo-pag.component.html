@@ -36,11 +36,14 @@
             <p class="text-pag">Novo pagamento:</p>
         <div style="width: 362px; margin-right: auto;margin-left: auto;">
             <label for="nome" class="my-label" style="margin-bottom: 20px;"> Valor da transferência</label>
-            <input type="text" class="form-control" id="nome" value="R$ 3.000,00">
+            <!-- <button (click)="f()">ok</button> -->
+            <input type="text" class="form-control text-center " id="monto" [(ngModel)]="monto"
+            currencyMask  [options]="{ prefix: 'R$ ', thousands: '.', decimal: ',' }"(keydown)="f()">
+            
         </div>
         <div style="width: 302px;margin-left: 35px;margin-top: 20px;">
             <p class="text-claro">Você precisa ter o limite disponível de:</p>
-            <p class="text-azul"> R$ 1.923,84</p>
+            <p class="text-azul" > R$ {{disponible}}</p>
         </div>
         <div style="margin-left: 35px;margin-top: 35px;">
             <p class="text-claro">Parcelamento</p>
@@ -48,14 +51,14 @@
         <div style="width: 360px; margin-right: auto;margin-left: auto;">
             <div style="display: flex;" class="text-msg">
                 <div style="margin-left: 10px;">
-                    <p>12x</p>
+                    <p>{{parcelas}}x</p>
                 </div>
                 <div style="margin-left: auto;">
-                    <p>R$ 400,00</p>
+                    <p>R$ {{monto_parcela}}</p>
                 </div>
             </div>
             <div style="margin-top: 30px;">
-                <input type="range" class="form-range" min="0" max="12" step="3">
+                <input type="range" class="form-range" min="1" max="12" step="1" [(ngModel)]="parcelas"(ngModelChange)="calcular()">
             </div>
 
         </div>
