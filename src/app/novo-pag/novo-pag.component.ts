@@ -33,7 +33,7 @@ export class NovoPagComponent implements OnInit {
        this.kkk = this.source.subscribe(val => {stop = val;
        console.log(stop);
       
-        if(stop == 3)
+        if(stop == 1)
         {
           this.calcular();
           this.kkk.unsubscribe();
